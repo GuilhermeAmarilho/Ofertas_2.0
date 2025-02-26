@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 'Generico/head.html' %}
+<body>
+    {% include 'Generico/navbar.html' %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/cartaz.css') }}">
+    <main>
+        <div class="cartaz_Botoes_Laterais">
+            <p class="cartaz_Title">
+                Configurações
+            </p>
+            <div class="texto_bordado_branco cartaz_Tema_atual">
+                Tema atual: 
+                <p>
+                    {{config['Tema_Escolhido']}}
+                </p>
+            </div>
+            <a href="javascript:tela_Lista_De_Promocao()" class="texto_bordado_branco cartaz_Tema">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Tema.png') }}">
+                <div>
+                    <div>Alterar</div>
+                    <div>Tema</div>
+                </div>
+            </a>
+            <a href="#" class="texto_bordado_branco cartaz_Logo">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Logo.png') }}">
+                <div>
+                    <div>Ajustar</div>
+                    <div>Logo</div>
+                </div>
+            </a>
+            <a href="#" class="texto_bordado_branco cartaz_Rodape">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Rodape.png') }}">
+                <div>
+                    <div>Ajustar</div>
+                    <div>Rodapé</div>
+                </div>
+            </a>
+            <div class="cartaz_Formatos">
+                <p class="texto_bordado_branco">Formatos</p>
+                <div class="cartaz_Formatos_Opcoes">
+                    <div>
+                        <input type="checkbox" name="Vertical" id="Vertical" checked>
+                        <label for="Vertical" class="texto_bordado_branco">Vertical</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="Horizontal" id="Horizontal" checked>
+                        <label for="Horizontal" class="texto_bordado_branco">Horizontal</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="Feed" id="Feed" checked>
+                        <label for="Feed" class="texto_bordado_branco">Feed</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="Story" id="Story" checked>
+                        <label for="Story" class="texto_bordado_branco">Story</label>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="texto_bordado_branco cartaz_Preco2">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Preco2.png') }}">
+                <div>
+                    <div>Ajustar</div>
+                    <div>% Fator</div>
+                </div>
+            </a>
+            <a href="#" class="texto_bordado_branco cartaz_Outros_Parametros">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Outros_Parametros.png') }}">
+                <div>
+                    <div>Outros</div>
+                    <div>Parâmetros</div>
+                </div>
+            </a>
+            <a href="#" class="texto_bordado_branco cartaz_Iniciar">
+                <img src="{{ url_for('static', filename='Img/Cartaz_Iniciar.png') }}">
+                <div>
+                    Iniciar!
+                </div>
+            </a>
+        </div>
+        <div class="cartaz_Imagens">
+            <div class="cartaz_Vertical">
+                <p>Vertical</p>
+                <img src="{{ url_for('static', filename='Modelo/Vertical.png') }}" alt="Modelo Vertical">
+            </div>
+            <div class="cartaz_Horizontal">
+                <p>Horizontal</p>
+                <img src="{{ url_for('static', filename='Modelo/Horizontal.png') }}" alt="Modelo Horizontal">
+            </div>
+            <div class="cartaz_Feed">
+                <p>Feed</p>
+                <img src="{{ url_for('static', filename='Modelo/Feed.png') }}" alt="Modelo Feed">
+            </div>
+            <div class="cartaz_Story">
+                <p>Story</p>
+                <img src="{{ url_for('static', filename='Modelo/Story.png') }}" alt="Modelo Story">
+            </div>
+        </div>
+    </main>
+    <div class="cartaz_Barra_De_Progresso">
+        <div></div>
+    </div>
+    <div class="cartaz_Background_Fechado" id="cartaz_Background"></div>
+    <div class="alterar_Tema_Fechado" id="alterar_Tema">
+        <h1>Alteração de tema</h1>
+        <input type="text" class="alterar_Tema_Query" placeholder="Informe o tema: ">
+        <div class="alterar_Tema_Results"></div>
+        <a href="javascript:tela_Lista_De_Promocao()" class="alterar_Tema_Fechar"><img src="{{ url_for('static', filename='Img/Cartaz_Fechar.png') }}" alt="Fechar"></a>
+    </div>
+    {% include 'Generico/footer.html' %}
+    <script src="{{ url_for('static', filename='Script/cartaz.js') }}"></script>
+</body>
+</html>

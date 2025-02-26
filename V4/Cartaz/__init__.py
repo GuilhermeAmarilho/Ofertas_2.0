@@ -1,0 +1,1 @@
+from .create_Cartaz import criar_Modelo, criar_Cartaz

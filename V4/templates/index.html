@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 'Generico/head.html' %}
+<body>
+    {% include 'Generico/navbar.html' %}
+
+    {% if title %}
+        {{title}}
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    
+    {% include 'Generico/footer.html' %}
+</body>
+</html>
