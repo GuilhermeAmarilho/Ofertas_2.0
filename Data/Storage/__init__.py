@@ -1,0 +1,1 @@
+from .pegar_Propaganda import pegarPropagandaCompleta

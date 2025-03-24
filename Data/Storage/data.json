@@ -1,0 +1,255 @@
+{
+    "Theme": "Horti_Ofertas",
+    "Logo": "Logo_texto_duplo",
+    "Contrast": "Balao_Amarelo_Para_Laranja",
+    "Save_Path": "C\\Users\\gui\\Downloads",
+    "Vertical": {
+        "Logo": {
+            "Height": "240",
+            "Width": "200",
+            "Top_Position": "10",
+            "Left_Position": "560",
+            "Border_Size": "10",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "First_Text": {
+            "Height": "160",
+            "Width": "700",
+            "Top_Position": "240",
+            "Font_Name": "LilitaOne_Regular",
+            "Font_Size": "400",
+            "Font_Color": {"R": "255", "G": "255", "B": "0"},
+            "Border_Size": "20",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Middle_Text": {
+            "Height": "130",
+            "Width": "500",
+            "Top_Position": "380",
+            "Font_Name": "LilitaOne_Regular",
+            "Font_Size": "300",
+            "Font_Color": {"R": "255", "G": "255", "B": "0"},
+            "Border_Size": "15", 
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Last_Text": {
+            "Height": "100",
+            "Width": "250",
+            "Top_Position": "520",
+            "Font_Name": "LilitaOne_Regular",
+            "Font_Size": "300",
+            "Font_Color": {"R": "255", "G": "255", "B": "0"},
+            "Border_Size": "15",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Contrast": {
+            "Height": "340",
+            "Width": "600",
+            "Top_Position": "620",
+            "Border_Size": "10",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Price": {
+            "Height": "350",
+            "Width": "500",
+            "Top_Position": "610",
+            "Ratio_Large_Small": "3",
+            "Font_Name": "Anton-Regular",
+            "Font_Size": "300",
+            "Font_Color": {"R": "255", "G": "0", "B": "0"},
+            "Border_Size": "8",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "R$": {
+            "Height": "80",
+            "Width": "80",
+            "Botton_Distance": "160",
+            "Left_Distance": "20",
+            "Text": "R$",
+            "Font_Name": "LilitaOne_Regular",
+            "Font_Size": "240",
+            "Font_Color": {"R": "255", "G": "255", "B": "255"},
+            "Border_Size": "15",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Location": {
+            "Height": "80",
+            "Width": "400",
+            "Botton_Distance": "80",
+            "Left_Distance": "10",
+            "First_Text": "ESTRADA DA ILHA, NRO 150 - QUINTA",
+            "Last_Text": "RUA PRINCIPAL, NRO 239 - TOROTAMA",
+            "Font_Name": "LilitaOne_Regular",
+            "Font_Size": "120",
+            "Font_Color": {"R": "255", "G": "255", "B": "255"},
+            "Border_Size": "20",
+            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+        },
+        "Socials": {
+                "Height": "120",
+                "Width": "350",
+                "Botton_Distance": "120",
+                "Distancia_Direita": "10",
+                "Facebook": "Mercado Amarilho",
+                "Instagram": "@Mercado Amarilho",
+                "Whatsapp": "(53) 99948-7569",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "120",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "255"
+                },
+                "Border_Size": "15",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            }
+        },
+        "Horizontal": {
+            "Logo": {
+                "Height": "200",
+                "Width_Maxima": "160",
+                "Top_Position": "10",
+                "Left_Distance": "920",
+                "Border_Size": "10",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Texto_Superior": {
+                "Height": "140",
+                "Width_Maxima": "800",
+                "Top_Position": "200",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "300",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "0"
+                },
+                "Border_Size": "15",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Texto_Medio": {
+                "Height": "100",
+                "Width_Maxima": "500",
+                "Top_Position": "340",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "300",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "0"
+                },
+                "Border_Size": "15",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Balao": {
+                "Height": "240",
+                "Width": "700",
+                "Top_Position": "440",
+                "Border_Size": "10",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Preco": {
+                "Height": "240",
+                "Width": "550",
+                "Top_Position": "440",
+                "Proporcao_Grande/Pequena": "3",
+                "Font_Name": "Anton-Regular",
+                "Font_Size": "600",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "0",
+                    "B": "0"
+                },
+                "Border_Size": "15",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "R$": {
+                "Height": "80",
+                "Width": "80",
+                "Botton_Distance": "180",
+                "Left_Distance": "120",
+                "Texto": "R$",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "300",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "255"
+                },
+                "Border_Size": "15",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Localizacao": {
+                "Height": "80",
+                "Width": "500",
+                "Botton_Distance": "90",
+                "Left_Distance": "10",
+                "Texto_1": "ESTRADA DA ILHA, NRO 150 - QUINTA",
+                "Texto_2": "RUA PRINCIPAL, NRO 239 - TOROTAMA",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "300",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "255"
+                },
+                "Border_Size": "30",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            },
+            "Redes_Sociais": {
+                "Height": "120",
+                "Width": "450",
+                "Botton_Distance": "130",
+                "Distancia_Direita": "10",
+                "Facebook": "Mercado Amarilho",
+                "Instagram": "@Mercado Amarilho",
+                "Whatsapp": "(53) 99948-7569",
+                "Font_Name": "LilitaOne_Regular",
+                "Font_Size": "300",
+                "Font_Color": {
+                    "R": "255",
+                    "G": "255",
+                    "B": "255"
+                },
+                "Border_Size": "25",
+                "Border_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
+            }
+        }
+    }
+}
