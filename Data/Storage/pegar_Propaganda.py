@@ -1,87 +1,75 @@
-import os
+import os, sys, time
+os.system('cls')
+
 def tamanho_do_vetor(vetor):
     total = 0
     for item in vetor:
         total += len(item)
     return total
-def organizando_linha_vertical(item):
-    subItens = item.split(' ')
-    subItens.pop()
+
+def organizando_Linha_vertical(linha):
     resultItem = []
-    if (len(subItens) < 4):
+    partes = linha.split(' ')[:-1]
+    # Texto com no máximo 3 partes de texto
+    if (len(partes) < 4):
         i = 0 
         while i < 3:
+            # Caso menos que 3 itens, quebraria ao tentar acessar o dado inexistente
             try:
-                resultItem.append(subItens[i])
+                resultItem.append(partes[i])
             except:
                 resultItem.append('')
             i+=1
+    # Caso tenha mais de 4 partes de texto
     else:
-        i=0
-        while (i < 3):
-            texto_resultado = ''
-            while (len(texto_resultado) < tamanho_do_vetor(subItens)/1.2):
-                if(len(texto_resultado) == 0):
-                    texto_resultado += subItens.pop(0)
-                else:
-                    texto_resultado += ' ' + subItens.pop(0)
-            resultItem.append(texto_resultado)
-            i+=1
+        q, r = divmod(len(partes), 3)
+        grupos = []
+        inicio = 0
+        for i in range(3):
+            tamanho = q + (1 if i < r else 0) 
+            grupos.append(partes[inicio:inicio+tamanho])
+            inicio += tamanho
+        resultItem = [" ".join(grupo) for grupo in grupos]
     return resultItem
-def organizando_linha_horizontal(item):
-    subItens = item.split(' ')
-    subItens.pop()
-    resultItem = []
-    if (len(subItens) < 3):
-        i = 0 
-        while i < 2:
-            try:
-                resultItem.append(subItens[i])
-            except:
-                resultItem.append('')
-            i+=1
-    else:
-        i=0
-        texto_resultado = ''
-        while (len(texto_resultado) < tamanho_do_vetor(subItens)/1.2):
-            if(len(texto_resultado) == 0):
-                texto_resultado += subItens.pop(0)
-            else:
-                texto_resultado += ' ' + subItens.pop(0)
-        resultItem.append(texto_resultado)
-        texto_resultado = ''
-        for itens_do_subItens in subItens:
-            if(len(texto_resultado) == 0):
-                texto_resultado += itens_do_subItens
-            else:
-                texto_resultado += ' ' + itens_do_subItens
-        resultItem.append(texto_resultado)
-    return resultItem
-def organizando_valor(item):
-    subItens = item.split(' ')
-    valor = subItens.pop()
+
+def organizando_Linha_horizontal(linha):
+    partes = linha.split(' ')[:-1]
+    if len(partes) == 1:
+        return [partes[0], ""]
+    ruptura = 1
+    diferenca = None
+    # Testa todos os pontos possíveis de quebra (entre 1 e len(partes)-1)
+    for i in range(1, len(partes)):
+        line1 = " ".join(partes[:i])
+        line2 = " ".join(partes[i:])
+        diff = abs(len(line1) - len(line2))
+        if diferenca is None or diff < diferenca:
+            diferenca = diff
+            ruptura = i
+
+    return [" ".join(partes[:ruptura]), " ".join(partes[ruptura:])]
+
+def organizando_valor(linha):
+    valor = linha.strip().split()[-1]
     try:
-        float(valor)
-        valor.replace(',','.')
-        return valor
+        valor = float(valor.replace(",", "."))
+        return f"{valor:.2f}".replace(".", ",")
     except ValueError:
-        return -1
-def pegarPropagandaCompleta():
-    i = 0
+        return ""
+
+def getListItems(init = 0):
+    start = time.time()
     promocao_completa = []
     file_path = ((os.path.abspath(__file__)).replace('\\pegar_Propaganda.py', ''))
     with open((file_path+'\\dados_ofertas.txt'), 'r', encoding='utf8') as arquivo:
         for linha in arquivo:
-            promocao_atual= []
-            item = linha.strip()
-            promocao_atual.append(organizando_linha_vertical(item))
-            promocao_atual.append(organizando_linha_horizontal(item))
-            valor = organizando_valor(item)
-            promocao_atual.append(valor)
-            if valor != -1:
-                promocao_completa.append(promocao_atual)
-    # return promocao_completa
-    for item in promocao_completa:
-        promocao_completa(item)
-
-pegarPropagandaCompleta()
+            if linha.find('//') == -1 and linha != '\n':
+                linha = linha.replace('\n', '')
+                vetor_Item = [
+                    organizando_Linha_vertical(linha),
+                    organizando_Linha_horizontal(linha),
+                    organizando_valor(linha)
+                ]
+                promocao_completa.append(vetor_Item)
+    return promocao_completa
+getListItems()
