@@ -60,8 +60,12 @@ def organizando_linha_horizontal(item):
 def organizando_valor(item):
     subItens = item.split(' ')
     valor = subItens.pop()
-    valor.replace(',','.')
-    return valor
+    try:
+        float(valor)
+        valor.replace(',','.')
+        return valor
+    except ValueError:
+        return -1
 def pegarPropagandaCompleta():
     i = 0
     promocao_completa = []
@@ -72,6 +76,12 @@ def pegarPropagandaCompleta():
             item = linha.strip()
             promocao_atual.append(organizando_linha_vertical(item))
             promocao_atual.append(organizando_linha_horizontal(item))
-            promocao_atual.append(organizando_valor(item))
-            promocao_completa.append(promocao_atual)
-    return promocao_completa
+            valor = organizando_valor(item)
+            promocao_atual.append(valor)
+            if valor != -1:
+                promocao_completa.append(promocao_atual)
+    # return promocao_completa
+    for item in promocao_completa:
+        promocao_completa(item)
+
+pegarPropagandaCompleta()
