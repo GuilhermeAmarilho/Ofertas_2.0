@@ -1,1 +1,1 @@
-from .pegar_Propaganda import getListItems
+from pegar_Propaganda import getListItems
