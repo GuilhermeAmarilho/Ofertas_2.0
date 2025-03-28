@@ -1,0 +1,6 @@
+Data/__pycache__
+Data/Storage/__pycache__
+**/__pycache__
+*.pyc
+*.log
+.env

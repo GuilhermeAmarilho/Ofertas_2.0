@@ -1,0 +1,1 @@
+from .Cartaz import get_Cartaz

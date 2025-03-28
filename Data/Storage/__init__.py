@@ -1,1 +1,1 @@
-from .pegar_Propaganda import getListItems
+from .Get_Promo import getListItems

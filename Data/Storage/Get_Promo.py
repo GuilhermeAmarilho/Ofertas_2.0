@@ -60,8 +60,8 @@ def organizando_valor(linha):
 def getListItems(init = 0):
     start = time.time()
     promocao_completa = []
-    file_path = ((os.path.abspath(__file__)).replace('\\pegar_Propaganda.py', ''))
-    with open((file_path+'\\dados_ofertas.txt'), 'r', encoding='utf8') as arquivo:
+    file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+    with open((file_path+'\\Dados_ofertas.txt'), 'r', encoding='utf8') as arquivo:
         for linha in arquivo:
             if linha.find('//') == -1 and linha != '\n':
                 linha = linha.replace('\n', '')
