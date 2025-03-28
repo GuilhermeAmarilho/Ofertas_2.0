@@ -7,13 +7,8 @@ CPU_COUNT = os.cpu_count()
 
 # ######################### PATH #########################  
 def get_Font(nome_Fonte, tamanho_Fonte):
-    font = ImageFont.truetype(
-        (
-            get_Path(1) + '\\Data\\Fonts\\' + nome_Fonte + '.ttf'
-        ), 
-        int(tamanho_Fonte)
-    )
-    return font
+    font_path = os.path.join(get_Path(1), 'Data', 'Fonts', f'{nome_Fonte}.ttf')
+    return ImageFont.truetype(font_path, int(tamanho_Fonte))
 
 def get_Path(level = 0):
     return "\\".join(os.path.abspath(__file__).split('\\')[:(-1-level)])
@@ -54,31 +49,46 @@ def get_Adjusted_Text(info, string):
     bbox = text.getbbox()
     if bbox:
         text = text.crop(bbox)
-    width = int(info['Width'])
-    fator = width / text.width
-    height = int(text.height * fator)
     text = text.resize(
-        (
-            width, 
-            height
+            (
+                text.width, 
+                int(info['Height'])
+            )
         )
-    )
+    if int(info['Width']) < text.width:
+        text = text.resize(
+            (
+                int(info['Width']), 
+                text.height
+            )
+        )
     return text, int(info["Top_Position"])
 
-def get_Cartaz(type, text, value):
+def get_Cartaz(cartaz_Type, text, value):
     os.system('cls')
-    config = get_Config(type)
-    base_Cartaz = get_Base_Cartaz(type)
+    config = get_Config(cartaz_Type)
+    base_Cartaz = get_Base_Cartaz(cartaz_Type)
     
-    # Funções a chamar
+    # ########### Logo ###########
     logo, logo_Pos = get_Adjusted_Logo(config['Logo'])
-    first_Text, first_Text_Pos = get_Adjusted_Text(config['First_Text'], text[0])
-    middle_Text, middle_Text_Pos = get_Adjusted_Text(config['Middle_Text'], text[1])
-
-    # Adicionando  a imagem
     base_Cartaz.paste(logo, logo_Pos, logo)
+    
+    # ########### Texto superior ###########
+    first_Text, first_Text_Pos = get_Adjusted_Text(config['First_Text'], text[0])
     base_Cartaz.paste(first_Text, ( int(base_Cartaz.width/2  - first_Text.width/2), first_Text_Pos), first_Text)
+
+    
+    # ########### Texto do meio ###########
+    middle_Text, middle_Text_Pos = get_Adjusted_Text(config['Middle_Text'], text[1])
     base_Cartaz.paste(middle_Text, ( int(base_Cartaz.width/2  - middle_Text.width/2), middle_Text_Pos), middle_Text)
+    
+    # ########### Texto inferior ###########
+    if len(text) > 2:
+        last_Text, last_Text_Pos = get_Adjusted_Text(config['Last_Text'], text[2])
+        base_Cartaz.paste(last_Text, ( int(base_Cartaz.width/2  - last_Text.width/2), last_Text_Pos), last_Text)
+    
+    
+
     base_Cartaz.show()
     # return cartaz
     
