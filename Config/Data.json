@@ -7,9 +7,7 @@
         "Logo": {
             "Width": "240",
             "Top_Position": "5",
-            "Left_Position": "590",
-            "Border_Size": "10",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Left_Position": "590"
         },
         "First_Text": {
             "Height": "160",
@@ -17,9 +15,7 @@
             "Top_Position": "260",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "400",
-            "Font_Color": {"R": "0", "G": "0", "B": "0"},
-            "Border_Size": "20",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Middle_Text": {
             "Height": "120",
@@ -27,9 +23,7 @@
             "Top_Position": "420",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "0", "G": "0", "B": "0"},
-            "Border_Size": "15", 
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Last_Text": {
             "Height": "120",
@@ -37,52 +31,43 @@
             "Top_Position": "540",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "0", "G": "0", "B": "0"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Contrast": {
             "Height": "340",
             "Width": "600",
-            "Top_Position": "620",
-            "Border_Size": "10",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Top_Position": "620"
         },
         "Price": {
             "Height": "350",
             "Width": "500",
-            "Top_Position": "610",
-            "Ratio_Large_Small": "3",
+            "Top_Position": "680",
+            "Ratio_Large_Small": "2",
             "Font_Name": "Anton-Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "255", "G": "0", "B": "0"},
-            "Border_Size": "8",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "0", "B": "0"}
         },
-        "R$": {
+        "Money": {
             "Height": "80",
             "Width": "80",
-            "Botton_Distance": "160",
+            "Top_Position": "970",
             "Left_Position": "20",
             "Text": "R$",
             "Font_Name": "LilitaOne_Regular",
-            "Font_Size": "240",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Size": "200",
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Location": {
-            "Height": "80",
-            "Width": "400",
-            "Botton_Distance": "80",
+            "Height": "60",
+            "Width": "360",
+            "First_Text": "ESTRADA DA ILHA Nº150 QUINTA",
+            "Last_Text": "RUA PRINCIPAL Nº239 TOROTAMA",
+            "Top_Position": "1060",
             "Left_Position": "10",
-            "First_Text": "ESTRADA DA ILHA, NRO 150 - QUINTA",
-            "Last_Text": "RUA PRINCIPAL, NRO 239 - TOROTAMA",
+            "Gap": "-10",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "120",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "20",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Socials": {
             "Height": "120",
@@ -94,18 +79,14 @@
             "Whatsapp": "(53) 99948-7569",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "120",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "255", "B": "255"}
         }
     },
     "Paisagem": {
         "Logo": {
             "Width": "200",
             "Top_Position": "5",
-            "Left_Position": "840",
-            "Border_Size": "10",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Left_Position": "840"
         },
         "First_Text": {
             "Height": "120",
@@ -113,9 +94,7 @@
             "Top_Position": "205",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "0", "G": "0", "B": "0"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Middle_Text": {
             "Height": "120",
@@ -123,16 +102,12 @@
             "Top_Position": "330",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "0", "G": "0", "B": "0"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "0", "G": "0", "B": "0"}
         },
         "Contrast": {
             "Height": "240",
             "Width": "700",
-            "Top_Position": "440",
-            "Border_Size": "10",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Top_Position": "440"
         },
         "Price": {
             "Height": "240",
@@ -141,9 +116,7 @@
             "Proporcao_Grande/Pequena": "3",
             "Font_Name": "Anton-Regular",
             "Font_Size": "600",
-            "Font_Color": {"R": "255", "G": "0", "B": "0"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "0", "B": "0"}
         },
         "R$": {
             "Height": "80",
@@ -153,9 +126,7 @@
             "Text": "R$",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "15",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "255", "B": "255"}
         },
         "Location": {
             "Height": "80",
@@ -166,9 +137,7 @@
             "Last_Text": "RUA PRINCIPAL, NRO 239 - TOROTAMA",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "30",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "255", "B": "255"}
         },
         "Socials": {
             "Height": "120",
@@ -180,9 +149,7 @@
             "Whatsapp": "(53) 99948-7569",
             "Font_Name": "LilitaOne_Regular",
             "Font_Size": "300",
-            "Font_Color": {"R": "255", "G": "255", "B": "255"},
-            "Border_Size": "25",
-            "Border_Color": {"R": "0", "G": "0", "B": "0"}
+            "Font_Color": {"R": "255", "G": "255", "B": "255"}
         }
     }
 }

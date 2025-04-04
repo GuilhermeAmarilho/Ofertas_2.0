@@ -4,7 +4,12 @@ import time
 
 start = time.time()
 
-get_Cartaz("Paisagem", ["BIFE DE", "PRIMEIRA Kg"], "36,99")
+if __name__ == '__main__':
+    # cartaz_Type = "Exemplo"  # ou o identificador apropriado
+    # textos = ["TEXTO SUPERIOR", "TEXTO DO MEIO", "TEXTO INFERIOR"]
+    # cartaz = get_Cartaz(cartaz_Type, textos)
+    # get_Cartaz("Paisagem", ["BIFE DE", "PRIMEIRA Kg"], "36,99")
+    get_Cartaz("Retrato", ["BIFE DE", "PRIMEIRA" , "Kg"], "36,99")
 
 end = time.time()
-print("Tempo de execução (recursivo): {:.6f} segundos".format(end - start))
+print("{:.6f} segundos".format(end - start))

@@ -4,8 +4,8 @@ import os
 
 CPU_COUNT = os.cpu_count()
 
+# ######################### Caminhos corretos #########################
 
-# ######################### PATH #########################  
 def get_Font(nome_Fonte, tamanho_Fonte):
     font_path = os.path.join(get_Path(1), 'Data', 'Fonts', f'{nome_Fonte}.ttf')
     return ImageFont.truetype(font_path, int(tamanho_Fonte))
@@ -42,7 +42,7 @@ def get_Adjusted_Text(info, string):
     font = get_Font(info['Font_Name'], info['Font_Size'])
     font_Color = (int(info['Font_Color']['R']), int(info['Font_Color']['G']), int(info['Font_Color']['B']))
     text_Size = len(string) * int(info['Font_Size'])
-    altura_Maxima = int(int(info['Font_Size']) * 1.2)
+    altura_Maxima = int(int(info['Font_Size']) * 1.3)
     text = Image.new('RGBA', (text_Size, altura_Maxima), color = (0, 0, 0, 0))
     area_de_Trabalho = ImageDraw.Draw(text)
     area_de_Trabalho.text((0, 0), string, font = font, fill = font_Color)
@@ -64,6 +64,59 @@ def get_Adjusted_Text(info, string):
         )
     return text, int(info["Top_Position"])
 
+def get_Adjusted_Price(info, price):
+    price = price.split(',')
+    big_Price = price[0]
+    small_Price = ',' + price[1]
+    big_Price = get_Adjusted_Text(info, big_Price)[0]
+    small_Price = get_Adjusted_Text(info, small_Price)[0]
+    small_Price = small_Price.resize(
+        (
+            int( small_Price.width / int(info['Ratio_Large_Small'])), 
+            int( small_Price.height / int(info['Ratio_Large_Small']))
+        )
+    )
+    full_Price = Image.new('RGBA', (big_Price.width+small_Price.width, big_Price.height), color = (0, 0, 0, 0))
+    full_Price.paste(big_Price, (0, 0), big_Price)
+    full_Price.paste(small_Price, (big_Price.width, 0), small_Price)
+    size = (
+        int(info['Width']),
+        int(info['Height'])
+    )
+    full_Price = full_Price.resize(size)
+    return full_Price, int(info["Top_Position"])
+
+def get_Adjusted_Money(info):
+    money, money_Pos_Top = get_Adjusted_Text(info, info['Text'])
+    money_Pos_Left = int(info['Left_Position'])
+    return money, money_Pos_Top, money_Pos_Left
+
+def get_Adjusted_Location(info):
+    first_Text = get_Adjusted_Text(info,  info['First_Text'])[0]
+    last_Text = get_Adjusted_Text(info, info['Last_Text'])[0]
+    gap = int(info['Gap'])
+    full_Height = first_Text.height + last_Text.height + gap
+    if(first_Text.width >= last_Text.width):
+        full_Width = first_Text.width
+    else:
+        full_Width = last_Text.width
+    full_Location = Image.new(
+        'RGBA', 
+        (full_Width, full_Height), 
+        color = (255, 255, 255, 0)
+    )
+    print(full_Location, first_Text, last_Text)
+    full_Location.paste(first_Text, (0, 0), first_Text)
+    full_Location.paste(last_Text, (0, first_Text.height + gap), last_Text)
+    size = (
+        int(info['Width']),
+        int(info['Height'])
+    )
+    full_Location = full_Location.resize(size)
+    return full_Location, int(info['Top_Position']), int(info['Left_Position']) 
+
+# ######################### Criação dos cartazes #########################
+
 def get_Cartaz(cartaz_Type, text, value):
     os.system('cls')
     config = get_Config(cartaz_Type)
@@ -76,7 +129,6 @@ def get_Cartaz(cartaz_Type, text, value):
     # ########### Texto superior ###########
     first_Text, first_Text_Pos = get_Adjusted_Text(config['First_Text'], text[0])
     base_Cartaz.paste(first_Text, ( int(base_Cartaz.width/2  - first_Text.width/2), first_Text_Pos), first_Text)
-
     
     # ########### Texto do meio ###########
     middle_Text, middle_Text_Pos = get_Adjusted_Text(config['Middle_Text'], text[1])
@@ -87,9 +139,22 @@ def get_Cartaz(cartaz_Type, text, value):
         last_Text, last_Text_Pos = get_Adjusted_Text(config['Last_Text'], text[2])
         base_Cartaz.paste(last_Text, ( int(base_Cartaz.width/2  - last_Text.width/2), last_Text_Pos), last_Text)
     
+    # ########### Preço ###########
+    price, price_Pos = get_Adjusted_Price(config['Price'], value)
+    base_Cartaz.paste(price, ( int(base_Cartaz.width/2  - price.width/2), price_Pos), price)
+
+    # ########### Tipo Monetário ###########
+    type_Money, type_Money_Pos_Top, type_Money_Pos_Left = get_Adjusted_Money(config['Money'])
+    base_Cartaz.paste(type_Money, (type_Money_Pos_Left, type_Money_Pos_Top), type_Money)
+
+    # ########### Localização ###########
+    location, location_Pos_Top, location_Pos_Left = get_Adjusted_Location(config['Location'])
+    base_Cartaz.paste(location, (location_Pos_Left, location_Pos_Top), location)
+    
+    base_Cartaz.show()
     
 
-    base_Cartaz.show()
+    # base_Cartaz.show()
     # return cartaz
     
     return 
