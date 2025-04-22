@@ -1,8 +1,8 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont
 from Config import get_Config
 import os
-
-CPU_COUNT = os.cpu_count()
+from Data import getListItems
+from multiprocessing import Pool, cpu_count
 
 # ######################### Caminhos corretos #########################
 
@@ -105,7 +105,6 @@ def get_Adjusted_Location(info):
         (full_Width, full_Height), 
         color = (255, 255, 255, 0)
     )
-    print(full_Location, first_Text, last_Text)
     full_Location.paste(first_Text, (0, 0), first_Text)
     full_Location.paste(last_Text, (0, first_Text.height + gap), last_Text)
     size = (
@@ -118,43 +117,65 @@ def get_Adjusted_Location(info):
 # ######################### Criação dos cartazes #########################
 
 def get_Cartaz(cartaz_Type, text, value):
-    os.system('cls')
     config = get_Config(cartaz_Type)
     base_Cartaz = get_Base_Cartaz(cartaz_Type)
-    
     # ########### Logo ###########
     logo, logo_Pos = get_Adjusted_Logo(config['Logo'])
-    base_Cartaz.paste(logo, logo_Pos, logo)
-    
+    base_Cartaz.paste(logo, logo_Pos, logo)    
     # ########### Texto superior ###########
     first_Text, first_Text_Pos = get_Adjusted_Text(config['First_Text'], text[0])
     base_Cartaz.paste(first_Text, ( int(base_Cartaz.width/2  - first_Text.width/2), first_Text_Pos), first_Text)
-    
     # ########### Texto do meio ###########
     middle_Text, middle_Text_Pos = get_Adjusted_Text(config['Middle_Text'], text[1])
     base_Cartaz.paste(middle_Text, ( int(base_Cartaz.width/2  - middle_Text.width/2), middle_Text_Pos), middle_Text)
-    
     # ########### Texto inferior ###########
     if len(text) > 2:
-        last_Text, last_Text_Pos = get_Adjusted_Text(config['Last_Text'], text[2])
-        base_Cartaz.paste(last_Text, ( int(base_Cartaz.width/2  - last_Text.width/2), last_Text_Pos), last_Text)
-    
+        if text[2] != '':
+            last_Text, last_Text_Pos = get_Adjusted_Text(config['Last_Text'], text[2])
+            base_Cartaz.paste(last_Text, ( int(base_Cartaz.width/2  - last_Text.width/2), last_Text_Pos), last_Text)
     # ########### Preço ###########
     price, price_Pos = get_Adjusted_Price(config['Price'], value)
     base_Cartaz.paste(price, ( int(base_Cartaz.width/2  - price.width/2), price_Pos), price)
-
     # ########### Tipo Monetário ###########
     type_Money, type_Money_Pos_Top, type_Money_Pos_Left = get_Adjusted_Money(config['Money'])
     base_Cartaz.paste(type_Money, (type_Money_Pos_Left, type_Money_Pos_Top), type_Money)
-
     # ########### Localização ###########
     location, location_Pos_Top, location_Pos_Left = get_Adjusted_Location(config['Location'])
     base_Cartaz.paste(location, (location_Pos_Left, location_Pos_Top), location)
-    
-    base_Cartaz.show()
-    
+    # ########### Compressão ###########
+    base_Cartaz = base_Cartaz.convert('RGB')
+    return base_Cartaz
 
-    # base_Cartaz.show()
-    # return cartaz
-    
-    return 
+def _worker(args):
+    type, text, value, out_path = args
+    get_Cartaz(type, text, value).save(out_path)
+
+def generate_Exemple_Items(view = False, who=None):
+    item = [["COXA E SOBRECOXA", "TRADICIONAL", "Kg"], ["COXA E SOBRECOXA", "TRADICIONAL Kg"], "18,99"]
+    if view == False:
+        cartaz_List_Path = get_Path(1) + '\\Exemple\\'
+        if  not os.path.exists(cartaz_List_Path):
+            os.mkdir(cartaz_List_Path)
+        tasks = []
+        tasks.append(("Retrato", item[0], item[2], cartaz_List_Path+"Retrato.png"))
+        tasks.append(("Paisagem", item[1], item[2], cartaz_List_Path+"Paisagem.png"))
+        with Pool(processes = cpu_count()) as pool:
+            pool.map(_worker, tasks)
+    else:
+        match who:
+            case "Retrato":
+                get_Cartaz("Retrato", item[0], item[2]).show()
+            case "Paisagem":
+                get_Cartaz("Paisagem", item[1], item[2]).show()
+
+def generate_All_Items():
+    cartaz_List_Path = get_Path(1) + '\\results\\'
+    if  not os.path.exists(cartaz_List_Path):
+        os.mkdir(cartaz_List_Path)
+    tasks = []
+    for i, item in enumerate(getListItems(), start=1):
+        primeiro, segundo, valor = item[0], item[1], item[2]
+        tasks.append(("Retrato", primeiro, valor, cartaz_List_Path+"Retrato "+str(i)+".png"))
+        tasks.append(("Paisagem", segundo, valor, cartaz_List_Path+"Paisagem "+str(i)+".png"))
+    with Pool(processes=cpu_count()) as pool:
+        pool.map(_worker, tasks)

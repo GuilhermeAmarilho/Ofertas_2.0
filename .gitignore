@@ -4,3 +4,4 @@ Data/Storage/__pycache__
 *.pyc
 *.log
 .env
+/results/
