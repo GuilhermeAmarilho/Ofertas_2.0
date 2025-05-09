@@ -5,3 +5,4 @@ Data/Storage/__pycache__
 *.log
 .env
 /results/
+/Exemple/
