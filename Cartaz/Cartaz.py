@@ -1,25 +1,25 @@
 from PIL import Image, ImageDraw, ImageFont
-from Config import get_Config
 import os
-from Data import getListItems
+from .Config_Reader import get_Config
+from Storage import getListItems
 from multiprocessing import Pool, cpu_count
 
 # ######################### Caminhos corretos #########################
 
 def get_Font(nome_Fonte, tamanho_Fonte):
-    font_path = os.path.join(get_Path(1), 'Data', 'Fonts', f'{nome_Fonte}.ttf')
+    font_path = os.path.join(get_Path(1), 'Design', 'Fonts', f'{nome_Fonte}.ttf')
     return ImageFont.truetype(font_path, int(tamanho_Fonte))
 
 def get_Path(level = 0):
     return "\\".join(os.path.abspath(__file__).split('\\')[:(-1-level)])
 
 def get_Base_Cartaz(modelo):
-    path = get_Path(1) + '\\Data\\Themes\\' + get_Config("Theme") + "\\" + modelo + ".png"
+    path = get_Path(1) + '\\Design\\Themes\\' + get_Config("Theme") + "\\" + modelo + ".png"
     return Image.open(path)
 
 def get_Logo_Path():
     logo = get_Config("Logo")
-    path = get_Path(1) + '\\Data\\Logo\\' + logo + ".png"
+    path = get_Path(1) + '\\Design\\Logo\\' + logo + ".png"
     return path
 
 # ######################### Ajustes de imagens #########################
@@ -153,7 +153,7 @@ def _worker(args):
 def generate_Exemple_Items(view = False, who=None):
     item = [["COXA E SOBRECOXA", "TRADICIONAL", "Kg"], ["COXA E SOBRECOXA", "TRADICIONAL Kg"], "18,99"]
     if view == False:
-        cartaz_List_Path = get_Path(1) + '\\Exemple\\'
+        cartaz_List_Path = get_Path(0) + '\\Exemple\\'
         if  not os.path.exists(cartaz_List_Path):
             os.mkdir(cartaz_List_Path)
         tasks = []
@@ -169,7 +169,7 @@ def generate_Exemple_Items(view = False, who=None):
                 get_Cartaz("Paisagem", item[1], item[2]).show()
 
 def generate_All_Items():
-    cartaz_List_Path = get_Path(1) + '\\results\\'
+    cartaz_List_Path = get_Path(0) + '\\results\\'
     if  not os.path.exists(cartaz_List_Path):
         os.mkdir(cartaz_List_Path)
     tasks = []

@@ -4,5 +4,5 @@ Data/Storage/__pycache__
 *.pyc
 *.log
 .env
-/results/
-/Exemple/
+/Cartaz/results/
+/Cartaz/Exemple/
