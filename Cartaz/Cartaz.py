@@ -153,7 +153,7 @@ def _worker(args):
 def generate_Exemple_Items(view = False, who=None):
     item = [["COXA E SOBRECOXA", "TRADICIONAL", "Kg"], ["COXA E SOBRECOXA", "TRADICIONAL Kg"], "18,99"]
     if view == False:
-        cartaz_List_Path = get_Path(0) + '\\Exemple\\'
+        cartaz_List_Path = get_Path(1) + '\\Web\\Static\\Exemple\\'
         if  not os.path.exists(cartaz_List_Path):
             os.mkdir(cartaz_List_Path)
         tasks = []

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 'Generico/head.html' %}
+<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/promocao.css') }}">
+    {% include 'Generico/navbar.html' %} 
+    <main>
+        <!-- Botoes superiores minificados    -->
+        <div class="buttons_Lista_Promocao_Pequenos">
+            <a href="javascript:tela_Adicionar_Promocao()" class="buttons_Lista_Promocao_Pequenos_Simples">
+                <img src="{{ url_for('static', filename='Img/Promocao_Adicionar_Unico.png') }}" class="imagem_bordado_branco" alt="Promocao Adicionar Unico">
+            </a>
+            <a href="javascript:tela_Lista_De_Promocao()" class="buttons_Lista_Promocao_Pequenos_Lista">
+                <img src="{{ url_for('static', filename='Img/Promocao_Adicionar_Lista.png') }}" class="imagem_bordado_branco" alt="Promocao Adicionar Lista">
+            </a>
+            {% if itens and itens|length > 0 %}
+            <a href="javascript:tela_Editar_Lista_Promocoes()" class="buttons_Lista_Promocao_Pequenos_Editar">
+                <img src="{{ url_for('static', filename='Img/Promocao_Editar_Lista.png') }}" class="imagem_bordado_branco" alt="Promocao Editar Lista">
+            </a>
+            {% endif %}
+        </div>
+        <!-- Botoes superiores -->
+        <div class="buttons_Lista_Promocao">
+            <div class="button_Adicionar_Simples">
+                <a href="javascript:tela_Adicionar_Promocao()" class="texto_bordado_branco">
+                    Adicionar item
+                </a>
+            </div>
+            <div class="button_Adicionar_Lista">
+                <a href="javascript:tela_Lista_De_Promocao()" class="texto_bordado_branco">
+                    Adicionar lista
+                </a>
+            </div>
+            <!-- Fazer verificador para caso não haja itens na lista -->
+            {% if itens and itens|length > 0 %}
+                <div class="button_Editar">
+                    <a href="javascript:tela_Editar_Lista_Promocoes()" class="texto_bordado_branco">
+                        Editar lista
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+        <!-- Lista de itens -->
+        {% if itens and itens|length > 0 %}
+            <h1 class="texto_bordado_preto">Lista de itens atual!</h1>
+            <div class="itens_Promocao ">
+                {% for item in itens %}
+                    <div class="item_Promocao ">
+                        <p class="nome_Item_Promocao texto_bordado_branco">{{item[0] + " " + item[1]}}</p>
+                        <p class="valor_Item_Promocao texto_bordado_vermelho">{{item[2]}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </main>
+    <!-- Tela inserir item por item -->
+    <div id="background_Adicionar_Promocao" class="background_Adicionar_Promocao"></div>
+    <div id="adicionar_Promocao" class="adicionar_Promocao">
+        <h1>Adicionar item</h1>
+        <div class="adicionar_Promocao_Inputs">
+            <label for="Nome">Nome: </label>
+            <input type="text" placeholder="Informe o nome do produto: " name="Nome" id="Nome">
+        </div>
+        <div class="adicionar_Promocao_Inputs">
+            <label for="Valor">Valor: </label>
+            <input type="number" placeholder="Informe o valor do produto" name="Valor" id="Valor" step=".01">
+        </div>
+        <div class="adicionar_Promocao_Buttons">
+            <div class="adicionar_Promocao_Fechar">
+                <a href="javascript:tela_Adicionar_Promocao()" class="texto_bordado_branco select">Voltar</a>
+            </div>
+            <div class="adicionar_Promocao_Enviar">
+                <a href="javascript:adicionar_Promocao_Enviar()" class="texto_bordado_branco select">Enviar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Tela inserir lista de itens -->
+    <div id="background_Adicionar_Lista" class="background_Adicionar_Lista"></div>
+    <div id="adicionar_Lista" class="adicionar_Lista">
+        <h1>Adicionar lista de item</h1>
+        <textarea name="Inserir_Lista" id="Inserir_Lista" placeholder="Digite os itens para a lista!"></textarea>
+        <div class="adicionar_Lista_Buttons">
+            <div class="adicionar_Lista_Fechar">
+                <a href="javascript:tela_Lista_De_Promocao()" class="texto_bordado_branco select">Voltar</a>
+            </div>
+            <div class="adicionar_Lista_Limpar">
+                <a href="javascript:lista_De_Promocao_Limpar()" class="texto_bordado_branco select">Limpar</a>
+            </div>
+            <div class="adicionar_Lista_Enviar">
+                <a href="javascript:lista_De_Promocao_Enviar()" class="texto_bordado_branco select">Enviar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Tela editar lista existente -->
+    {% if itens and itens|length > 0 %}
+        <div id="background_Editar_Lista" class="background_Editar_Lista"></div>
+        <div id="editar_Lista" class="editar_Lista">
+            <h1>Editar lista de item</h1>
+            <textarea name="Editar_Lista" id="Editar_Lista" placeholder="Digite os itens para a lista!">{% for item in itens %}{{(item)|join(" ") + "\n"}}{% endfor %}</textarea>
+            <div class="editar_Lista_Buttons">
+                <div class="editar_Lista_Fechar">
+                    <a href="javascript:tela_Editar_Lista_Promocoes()" class="texto_bordado_branco select">Voltar</a>
+                </div>
+                <div class="editar_Lista_Limpar">
+                    <a href="javascript:editar_Lista_Promocoes_Limpar()" class="texto_bordado_branco select">Limpar</a>
+                </div>
+                <div class="editar_Lista_Enviar">
+                    <a href="javascript:editar_Lista_Promocoes_Enviar()" class="texto_bordado_branco select">Enviar</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% include 'Generico/footer.html' %}
+    <script src="{{ url_for('static', filename='Script/promocao.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+main{
+    display: flex;
+    flex-direction: row;
+    margin: 1.5%;
+    color: #fff;
+}
+main p{margin: 0;padding: 0;}
+main a{text-decoration: none;color: #fff;}
+/* ============== Botoes ============== */
+.cartaz_Botoes_Laterais{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-right: 5%;
+}
+.cartaz_Botoes_Laterais > *{margin: 3% 0;}
+/* ====== Titulo ====== */
+.cartaz_Botoes_Laterais .cartaz_Title{font-size: 1.6em;}
+/* ====== Tema atual ====== */
+.cartaz_Tema_atual{
+    text-align: center;
+    overflow: hidden;
+    width: 80%;
+}
+.cartaz_Tema_atual p{
+    margin-top: 3%;
+    font-size: 0.8em;
+}
+/* ====== Botao tema ====== */
+.cartaz_Tema{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+.cartaz_Tema img{width: 2.8em;}
+.cartaz_Tema div{margin: 5%;}
+.cartaz_Tema:hover{background: #777;border: 2px solid #bbb;}
+/* ====== Botao logo ====== */
+.cartaz_Logo{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+.cartaz_Logo img{width: 2.8em;}
+.cartaz_Logo div{margin: 5%;}
+.cartaz_Logo:hover{background: #777;border: 2px solid #bbb;}
+/* ====== Botao Rodapé ====== */
+.cartaz_Rodape{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+.cartaz_Rodape img{width: 2.8em;}
+.cartaz_Rodape div{margin: 5%;}
+.cartaz_Rodape:hover{background: #777;border: 2px solid #bbb;}
+/* ====== Botao Formatos ====== */
+.cartaz_Formatos{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.1s;
+}
+.cartaz_Formatos:hover{background: #bbb; border-radius: 10px;}
+.cartaz_Formatos p{font-size: 1.1em; padding: 2% 0;}
+.cartaz_Formatos_Opcoes{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    flex-wrap: nowrap;
+    font-size: 1em;
+    width: 100%;
+}
+.cartaz_Formatos_Opcoes input[type="checkbox"]{display: none;}
+.cartaz_Formatos_Opcoes label{
+    user-select: none;
+    padding: 10% 5%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 0.8em;
+    color: #ff0000;
+}
+.cartaz_Formatos_Opcoes label:hover{color: #999;}
+.cartaz_Formatos_Opcoes input[type="checkbox"]:checked + label {color: #007115; text-decoration: underline;}
+.cartaz_Formatos_Opcoes>div{display: flex; align-items: center; flex-direction: column;}
+/* ====== Botao Preco2 ====== */
+.cartaz_Preco2{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+    padding: 2% 0;
+}
+.cartaz_Preco2 img{width: 2.8em;}
+.cartaz_Preco2 div{margin: 3% 0;font-size: 1em;}
+.cartaz_Preco2:hover{background: #777;border: 2px solid #bbb;}
+/* ====== Botao Outros Parametros ====== */
+.cartaz_Outros_Parametros{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+    padding: 2% 0;
+}
+.cartaz_Outros_Parametros img{width: 2.8em;}
+.cartaz_Outros_Parametros div{margin: 3% 0;font-size: 1em;}
+.cartaz_Outros_Parametros:hover{background: #777;border: 2px solid #bbb;}
+/* ====== Botao Iniciar ====== */
+.cartaz_Iniciar{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    background: #bbb;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+    padding: 2% 0;
+}
+.cartaz_Iniciar img{width: 2.8em;}
+.cartaz_Iniciar div{margin: 3% 0;font-size: 1em;}
+.cartaz_Iniciar:hover{background: #777;border: 2px solid #bbb;}
+/* ============== Telas de alteracao de tema ============== */
+.cartaz_Background_Fechado{display: none;}
+.alterar_Tema_Fechado{display: none;}
+.cartaz_Blocked{overflow: hidden;}
+.cartaz_Background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    filter: opacity(95%);
+    cursor: pointer;
+}
+.alterar_Tema{
+    position: absolute;
+    top: 3%;
+    width: 60%;
+    margin-left: 20%;
+    background: #888;
+    border: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.alterar_Tema h1{font-size: 1.8em; margin: 2% 0;}
+.alterar_Tema_Query{
+    width: 60%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 8px;
+    outline: none;
+    background-color: #eee;
+    margin-bottom: 2%;
+}
+.alterar_Tema_Results::-webkit-scrollbar {display: none;}
+.alterar_Tema_Results {
+    width: 95%;
+    margin: 0 2.5%;
+    height: 75vh;
+    margin-bottom: 2%;
+    background: #eee;
+    border: 2px solid #222;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 1fr;
+    align-items: start;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.alterar_Tema_Unitario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    transition: 0.5s;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+}
+.alterar_Tema_Unitario p{width: 80%;text-align: center;font-size: 0.9em;}
+.alterar_Tema_Unitario img{width: 90%; padding-bottom: 5%;max-width: 150px;}
+.alterar_Tema_Unitario:hover{background: #999;}
+.alterar_Tema_Fechar{position: absolute; top: 1%; right: 1%;}
+.alterar_Tema_Fechar img{width: 3vw;}
+/* ============== Telas de ajuste da logo ============== */
+
+
+
+
+
+
+
+/* ============== Imagens ============== */
+.cartaz_Imagens{
+    width: 100%;
+    display: flex;
+}
+.cartaz_Imagens div{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 2%;
+}
+.cartaz_Imagens p{padding-bottom: 5%;}
+.cartaz_Vertical img{width: 50%;}
+.cartaz_Horizontal img{width: 70%;}
+.cartaz_Feed img{width: 40%;}
+.cartaz_Story img{width: 30%;}

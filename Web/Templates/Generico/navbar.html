@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <a href="/" class="logo">
+        <img src="{{ url_for('static', filename='Img/Navbar_Logo.png') }}" class="imagem_bordado_branco">
+        <div class="logo_Nome">
+            <p class="texto_bordado_preto select">MERCADO</p>
+            <p class="texto_bordado_preto select">AMARILHO</p>
+        </div>
+    </a>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="nav-items">
+        <a href="/" class="texto_bordado_preto select">Inicio</a>
+        <a href="/Cartaz" class="texto_bordado_preto select">Cartaz</a>
+        <a href="/Encarte" class="texto_bordado_preto select">Encarte</a>
+        <a href="/Video" class="texto_bordado_preto select">Video</a>
+        <a href="/Promocao" class="texto_bordado_preto select">Ofertas</a>
+    </div>
+</nav>
