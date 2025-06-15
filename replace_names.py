@@ -10,7 +10,7 @@ MAPPING = {
 }
 
 # Diretório base onde ficam os temas
-BASE_DIR = Path(__file__).parent / 'Data' / 'Themes'
+BASE_DIR = Path(__file__).parent / 'Design' / 'Themes'
 
 
 def rename_images_in_themes(base_dir: Path):
