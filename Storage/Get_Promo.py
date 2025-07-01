@@ -1,5 +1,4 @@
 import os, sys, time
-os.system('cls')
 
 def tamanho_do_vetor(vetor):
     total = 0
@@ -62,14 +61,42 @@ def getListItems(init = 0):
     promocao_completa = []
     file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
     with open((file_path+'\\Dados_ofertas.txt'), 'r', encoding='utf8') as arquivo:
+        i = 0
         for linha in arquivo:
             if linha.find('//') == -1 and linha != '\n':
                 linha = linha.replace('\n', '')
                 vetor_Item = [
                     organizando_Linha_vertical(linha),
                     organizando_Linha_horizontal(linha),
-                    organizando_valor(linha)
+                    organizando_valor(linha),
+                    i
                 ]
+                i+=1
                 promocao_completa.append(vetor_Item)
     return promocao_completa
-getListItems()
+
+def addItem(item, valor):
+    try:
+        valor = valor.replace(',','.')
+        valor = f"{float(valor):.2f}"
+        valor = valor.replace('.',',')
+        file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+        file = open(file = file_path+'\\dados_ofertas.txt', mode = 'a', encoding = 'utf-8')
+        file.write('\n'+item+' '+valor)
+        file.close
+        return True
+    except:
+        return False
+
+def replaceList(list):
+    try:
+        string = ''
+        for item in list:
+            string += "\n"+" ".join(item[1])+" "+item[2]
+        file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+        file = open(file = file_path+'\\dados_ofertas.txt', mode = 'w', encoding = 'utf-8')
+        file.write(string)
+        print("\n\n\n\n\n\Foi")
+        return True
+    except:
+        return False

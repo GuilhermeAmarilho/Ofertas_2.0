@@ -8,7 +8,7 @@ cartaz_bp = Blueprint('cartaz', __name__, url_prefix='/Cartaz', template_folder=
 @cartaz_bp.route('/', methods=['GET'])
 def tela_cartaz():
     # generate_Exemple_Items()
-    config = getConfig()
+    # config = getConfig()
     return render_template('cartaz.html', title="Criação de cartazes", config=config)
 
 # @cartaz_bp.route('/getListaDeTemas', methods=['GET', 'POST'])

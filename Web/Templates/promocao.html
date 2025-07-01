@@ -41,13 +41,25 @@
             {% endif %}
         </div>
         <!-- Lista de itens -->
-        {% if itens and itens|length > 0 %}
+        {% if items and items|length > 0 %}
             <h1 class="texto_bordado_preto">Lista de itens atual!</h1>
             <div class="itens_Promocao ">
-                {% for item in itens %}
-                    <div class="item_Promocao ">
-                        <p class="nome_Item_Promocao texto_bordado_branco">{{item[0] + " " + item[1]}}</p>
-                        <p class="valor_Item_Promocao texto_bordado_vermelho">{{item[2]}}</p>
+                {% for item in items %}
+                <div class="item_Promocao" id="item_Promocao_{{item[3]}}">
+                    <div class="item_Promocao_Botoes">
+                        <div class="item_Promocao_Remover">
+                            <a href="javascript:remover_Item({{item[3]}})">
+                                <img src="{{ url_for('static', filename='Img/Promocao_Remover_Item.png') }}" class="imagem_bordado_branco" alt="Promocao Remover">
+                            </a>
+                        </div>
+                        <div class="item_Promocao_Alterar">
+                            <a href="javascript:tela_Alterar_Promocao({{ item[3] }})">
+                                <img src="{{ url_for('static', filename='Img/Promocao_Editar_Item.png') }}" class="imagem_bordado_branco" alt="Promocao Remover">
+                            </a>
+                        </div>
+                    </div>
+                    <p class="nome_Item_Promocao texto_bordado_branco">{{item[1][0] + " " + item[1][1]}}</p>
+                    <p class="valor_Item_Promocao texto_bordado_vermelho">{{item[2]}}</p>
                     </div>
                 {% endfor %}
             </div>
@@ -91,25 +103,28 @@
             </div>
         </div>
     </div>
-    <!-- Tela editar lista existente -->
-    {% if itens and itens|length > 0 %}
-        <div id="background_Editar_Lista" class="background_Editar_Lista"></div>
-        <div id="editar_Lista" class="editar_Lista">
-            <h1>Editar lista de item</h1>
-            <textarea name="Editar_Lista" id="Editar_Lista" placeholder="Digite os itens para a lista!">{% for item in itens %}{{(item)|join(" ") + "\n"}}{% endfor %}</textarea>
-            <div class="editar_Lista_Buttons">
-                <div class="editar_Lista_Fechar">
-                    <a href="javascript:tela_Editar_Lista_Promocoes()" class="texto_bordado_branco select">Voltar</a>
-                </div>
-                <div class="editar_Lista_Limpar">
-                    <a href="javascript:editar_Lista_Promocoes_Limpar()" class="texto_bordado_branco select">Limpar</a>
-                </div>
-                <div class="editar_Lista_Enviar">
-                    <a href="javascript:editar_Lista_Promocoes_Enviar()" class="texto_bordado_branco select">Enviar</a>
-                </div>
+    <!-- Tela Alterar item -->
+    <div id="background_Alterar_Promocao" class="background_Alterar_Promocao"></div>
+    <div id="alterar_Promocao" class="alterar_Promocao">
+        <h1>Adicionar item</h1>
+        <div class="alterar_Promocao_Inputs">
+            <label for="Nome">Nome: </label>
+            <input type="text" placeholder="Informe o nome do produto: " name="Tela_Alterar_Nome" id="Tela_Alterar_Nome">
+        </div>
+        <div class="alterar_Promocao_Inputs">
+            <label for="Valor">Valor: </label>
+            <input type="number" placeholder="Informe o valor do produto" name="Tela_Alterar_Valor" id="Tela_Alterar_Valor" step=".01">
+        </div>
+        <div class="alterar_Promocao_Buttons">
+            <div class="alterar_Promocao_Fechar">
+                <a href="javascript:tela_Alterar_Promocao()" class="texto_bordado_branco select">Voltar</a>
+            </div>
+            <div class="alterar_Promocao_Enviar">
+                <a href="javascript:alterar_Promocao_Enviar()" class="texto_bordado_branco select">Enviar</a>
             </div>
         </div>
-    {% endif %}
+    </div>
+    
     {% include 'Generico/footer.html' %}
     <script src="{{ url_for('static', filename='Script/promocao.js') }}"></script>
 </body>

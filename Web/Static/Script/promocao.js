@@ -19,14 +19,14 @@ function adicionar_Promocao_Enviar(){
     nome = document.querySelector('input[name=Nome]');
     valor = document.querySelector('input[name=Valor]');
     if (!isNaN(parseFloat(valor.value)) && nome.value != ''){
-        fetch('/adicionarPromocaoSimples', {
+        fetch('/Promocao/AdicionarPromocaoSimples', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ nome: nome.value, valor: valor.value }),
         })
-        .then(() => window.location.href = '/Promocoes');         
+        .then(() => window.location.href = '/Promocao');         
     }else{
         if(isNaN(parseFloat(valor.value))){
             valor.setCustomValidity('Por favor, insira um valor válido.');
@@ -41,6 +41,7 @@ function adicionar_Promocao_Enviar(){
         }
     }
 }
+
 tela_Adicionar_Promocao(); // Fechar a tela via js
 // Adicionar lista de itens
 const div_Adicionar_Lista = document.querySelector('div#adicionar_Lista');
@@ -85,81 +86,88 @@ function lista_De_Promocao_Enviar(){
         let nome = dados[i].split(' ');
         let valor = nome.pop();
         nome = nome.join(' ');
-        if(isNaN(parseFloat(valor)) || dados == [''] || nome == ''){
-            erro = true;
-        }else{
+        if(!(isNaN(parseFloat(valor)) || dados == [''] || nome == '')){
             promocoes.push([nome, valor]);
         }
     }
-    if (erro){
-        textarea_Adicionar_Lista.setCustomValidity('Por favor, insira um valor válido.');
-    }else{
+    if (promocoes.length>0){
         textarea_Adicionar_Lista.setCustomValidity('');
-        fetch('/adicionarListaDePromocao', {
+        fetch('/Promocao/AdicionarListaDePromocao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ dados: promocoes}),
         })
-        .then(() => window.location.href = '/Promocoes');
+        .then(() => window.location.href = '/Promocao');
     }
 }
-tela_Lista_De_Promocao(); // Fechar a tela via js
-// Editar lista de itens
-if (document.querySelector('div#editar_Lista') != null){
-    const div_Editar_Lista = document.querySelector('div#editar_Lista');
-    const background_Editar_Lista = document.querySelector('div#background_Editar_Lista');
-    const textarea_Editar_Lista = document.querySelector('#Editar_Lista');
-    background_Editar_Lista.addEventListener(
-        "click", function (e) {
-            div_Editar_Lista.classList.toggle('editar_Lista');
-            div_Editar_Lista.classList.toggle('editar_Lista_Fechado');
-            background_Editar_Lista.classList.toggle('background_Editar_Lista');
-            background_Editar_Lista.classList.toggle('background_Editar_Lista_Fechado');
-        }
-    );
-    let Tamanho_Base_Textarea_Editar_Lista = parseFloat(window.getComputedStyle(textarea_Editar_Lista).height);
-    textarea_Editar_Lista.addEventListener(
-        'keydown', function (e) {
-            font_Size_Tela_Editar_Lista_De_Promocao= parseFloat(window.getComputedStyle(textarea_Editar_Lista).fontSize);
-            regex = new RegExp('\n', 'g');
-            matches = textarea_Editar_Lista.value.match(regex);
-            num_Linhas = (matches ? matches.length : 0);
-            textarea_Editar_Lista.style.height = (
-                Tamanho_Base_Textarea_Editar_Lista + 
-                font_Size_Tela_Editar_Lista_De_Promocao * 1.15 * num_Linhas
-            ) + 'px';
-        }
-    )
-    function tela_Editar_Lista_Promocoes(){
-        div_Editar_Lista.classList.toggle('editar_Lista');
-        div_Editar_Lista.classList.toggle('editar_Lista_Fechado');
-        background_Editar_Lista.classList.toggle('background_Editar_Lista');
-        background_Editar_Lista.classList.toggle('background_Editar_Lista_Fechado');
-        regex = new RegExp('\n', 'g');
-        matches = textarea_Editar_Lista.value.match(regex);
-        num_Linhas = (matches ? matches.length : 0);
-        console.log(num_Linhas);
-        textarea_Editar_Lista.style.height = (
-            parseFloat(window.getComputedStyle(textarea_Editar_Lista).height) + 
-            parseFloat(window.getComputedStyle(textarea_Editar_Lista).fontSize) * 1.15 * num_Linhas
-        ) + 'px';
-    }
-    function editar_Lista_Promocoes_Limpar(){
-        textarea_Editar_Lista.value = "";
-        textarea_Editar_Lista.style.height = (tamanho_Base_Textarea_Adicionar_Lista) + 'px';
-    }
-    function editar_Lista_Promocoes_Enviar(){
-        dados = textarea_Editar_Lista.value;
-        fetch('/editarListaDePromocao', {
+
+// Fechar a tela via js
+tela_Lista_De_Promocao(); 
+
+// Botões alterar e remover itens 
+function remover_Item(item){
+    fetch('/Promocao/RemoverItemPromocao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ dados: dados}),
+            body: JSON.stringify({ id: item}),
         })
-        .then(() => window.location.href = '/Promocoes');
-    }
-    tela_Editar_Lista_Promocoes(); // Fechar a tela via js
+        .then(() => window.location.href = '/Promocao');
 }
+const div_Alterar_Promocao = document.querySelector('div#alterar_Promocao');
+const background_Alterar_Promocao = document.querySelector('div#background_Alterar_Promocao');
+background_Alterar_Promocao.addEventListener(
+    "click", function (e) {
+        div_Alterar_Promocao.classList.toggle('alterar_Promocao');
+        div_Alterar_Promocao.classList.toggle('alterar_Promocao_Fechado');
+        background_Alterar_Promocao.classList.toggle('background_Alterar_Promocao');
+        background_Alterar_Promocao.classList.toggle('background_Alterar_Promocao_Fechado');
+    }
+);
+function tela_Alterar_Promocao(id = null){
+    if(id==null){
+        div_Alterar_Promocao.classList.toggle('alterar_Promocao');
+        div_Alterar_Promocao.classList.toggle('alterar_Promocao_Fechado');
+        background_Alterar_Promocao.classList.toggle('background_Alterar_Promocao');
+        background_Alterar_Promocao.classList.toggle('background_Alterar_Promocao_Fechado');
+    }else{
+        nome = document.getElementById("item_Promocao_"+id).children[1].innerHTML;
+        valor = document.getElementById("item_Promocao_"+id).children[2].innerHTML;
+        document.getElementById('Tela_Alterar_Nome').value = nome;
+        valor = valor.replace(",",".");
+        document.getElementById('Tela_Alterar_Valor').value = parseFloat(valor);
+        tela_Alterar_Promocao();
+    }
+}
+function alterar_Promocao_Enviar(){
+    nome = document.querySelector('input[name=Tela_Alterar_Nome]').value;
+    valor = document.querySelector('input[name=Tela_Alterar_Valor]').value;
+    console.log(nome, valor);
+    
+    // if (!isNaN(parseFloat(valor.value)) && nome.value != ''){
+    //     fetch('/Promocao/AlterarPromocaoSimples', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({ nome: nome.value, valor: valor.value }),
+    //     })
+    //     .then(() => window.location.href = '/Promocao');         
+    // }else{
+    //     if(isNaN(parseFloat(valor.value))){
+    //         valor.setCustomValidity('Por favor, insira um valor válido.');
+    //     }else{
+    //         valor.setCustomValidity('');
+    //     }
+    //     if(nome.value == ''){
+    //         nome.setCustomValidity('Campo nome não pode ser vazio.');
+    //     }
+    //     else{
+    //         nome.setCustomValidity('');
+    //     }
+    // }
+}
+tela_Alterar_Promocao()

@@ -4,7 +4,6 @@ main{
     color: white;
 }
 main h1{text-align: center;}
-/* Botoes superiores */
 .buttons_Lista_Promocao_Pequenos{
     display: none;
     justify-content: space-evenly;
@@ -18,6 +17,7 @@ main h1{text-align: center;}
     transition: 0.5s;
     border: 3px solid #666;
 }
+/* Botoes superiores */
 .buttons_Lista_Promocao_Pequenos img{width: 32px;}
 .buttons_Lista_Promocao_Pequenos a:hover{background-color: #888;border: 3px solid #ccc;}
 .buttons_Lista_Promocao{
@@ -25,7 +25,7 @@ main h1{text-align: center;}
     display: flex;
     justify-content: space-evenly;
     margin-top: 5%;
-    padding: 5% 0;
+    padding: 2% 0;
 }
 .buttons_Lista_Promocao>div{
     width: 30%;
@@ -33,17 +33,20 @@ main h1{text-align: center;}
     font-size: 1.5em;
 }
 .buttons_Lista_Promocao>div a{
-    border: 2px solid #fff;
-    padding: 6% 8%;
-    border-radius: 15px;
-    background-color: #bbb;
+    border-bottom: 2px solid #fff;
+    padding: 0 10px 5px 10px;
     text-decoration: none;
     letter-spacing: 2px;
+    transition: 0.2s;
 }
-.buttons_Lista_Promocao>div a:hover{background-color: #888;border: 2px solid #ccc;}
-.buttons_Lista_Promocao>div a:active{background-color: #555;border: 2px solid #aaa;}
+.buttons_Lista_Promocao>div a:hover{border: 2px solid #ccc; padding: 0 20px 5px 20px;color: #f00;}
+.buttons_Lista_Promocao>div a:active{border: 2px solid #666; padding: 0 20px 5px 20px;color: rgba(15, 78, 22, 0.499);}
+
 /* Lista de itens */
 .itens_Promocao{
+    background: #fff;
+    border-radius: 15px;
+    padding: 2% 5%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 }
@@ -52,22 +55,41 @@ main h1{text-align: center;}
     flex-direction: column;
     justify-content: space-between;
     border: 2px solid #bbb;
-    padding: 5%;
     text-align: center;
+    padding: 0 5%;
     border-radius: 15px;
-    transition: 0.5s;
+    transition: 0.1s;
     margin: 5%;
+    position: relative;
 }
 .item_Promocao:hover{
-    background: #bbb;
+    border: 2px solid #f00
 }
 .valor_Item_Promocao{
     color: red;
-    font-size: 1.8em;
-    margin-top: 0;
+    font-size: 2.5em;
+    margin: 0 0 5% 0;
+}
+.item_Promocao_Botoes{
+    display: none;
+    width: 90%;
+    justify-content: space-between;
+    position: absolute;
+    transition: 1s;
+}
+.item_Promocao_Botoes img:hover{
+    border: 2px solid #000;
+    border-radius: 5px;
+    transition: .1s;
+}
+.item_Promocao_Botoes img{
+    width: 32px;
+}
+.item_Promocao:hover .item_Promocao_Botoes {
+    display: flex;
 }
 /* Background para telas da promocao */
-.background_Adicionar_Promocao, .background_Adicionar_Lista, .background_Editar_Lista{
+.background_Adicionar_Promocao, .background_Adicionar_Lista, .background_Alterar_Promocao{
     position: absolute;
     top: 0;
     left: 0;
@@ -77,11 +99,11 @@ main h1{text-align: center;}
     filter: opacity(95%);
     cursor: pointer;
 }
-.background_Adicionar_Promocao_Fechado, .background_Adicionar_Lista_Fechado, .background_Editar_Lista_Fechado{display: none;}
+.background_Adicionar_Promocao_Fechado, .background_Adicionar_Lista_Fechado, .background_Alterar_Promocao_Fechado{display: none;}
 /* Fechar telas */
-.adicionar_Promocao_Fechado, .adicionar_Lista_Fechado, .editar_Lista_Fechado{display: none;}
+.adicionar_Promocao_Fechado, .adicionar_Lista_Fechado, .alterar_Promocao_Fechado{display: none;}
 /* Tela inserir item */
-.adicionar_Promocao{
+.adicionar_Promocao, .alterar_Promocao{
     position: absolute;
     top: 15%;
     width: 60%;
@@ -92,17 +114,17 @@ main h1{text-align: center;}
     align-items: center;
     border-radius: 20px;
 }
-.adicionar_Promocao h1{margin-bottom: 8%;}
-.adicionar_Promocao_Inputs{
+.adicionar_Promocao h1, .alterar_Promocao h1{margin-bottom: 8%;}
+.adicionar_Promocao_Inputs, .alterar_Promocao_Inputs{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     width: 70%;
 }
-.adicionar_Promocao_Inputs label{
+.adicionar_Promocao_Inputs label, .alterar_Promocao_Inputs label{
     font-size: 1.3em;
 }
-.adicionar_Promocao_Inputs input{
+.adicionar_Promocao_Inputs input, .alterar_Promocao_Inputs input{
     width: 60%;
     padding: 10px 15px;
     font-size: 1rem;
@@ -113,35 +135,28 @@ main h1{text-align: center;}
     background-color: #fff;
     margin-bottom: 5%;
 }
-.adicionar_Promocao_Inputs input:focus {
+.adicionar_Promocao_Inputs input:focus , .alterar_Promocao_Inputs input:focus{
     border-color: #007bff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
-.adicionar_Promocao_Inputs input:invalid {
+.adicionar_Promocao_Inputs input:invalid .alterar_Promocao_Inputs input:invalid{
     border-color: #dc3545;
     box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
 }
-.adicionar_Promocao_Buttons{
+.adicionar_Promocao_Buttons, .alterar_Promocao_Buttons{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: baseline;
-    width: 70%;
+    width: 50%;
 }
-.adicionar_Promocao_Buttons>div{
+.adicionar_Promocao_Buttons>div, .alterar_Promocao_Buttons>div{
     margin-bottom: 5%;
-    border-radius: 10px;
     font-size: 1.3em;
-    padding: 3% 8%;
-    border: 2px solid black;
     transition: 1s;
 }
-.adicionar_Promocao_Buttons a{
+.adicionar_Promocao_Buttons a, .alterar_Promocao_Buttons a{
     text-decoration: none;
 }
-.adicionar_Promocao_Fechar{background: rgb(108, 17, 17);}
-.adicionar_Promocao_Fechar:hover{background: rgb(62, 11, 11);}
-.adicionar_Promocao_Enviar{background: rgb(17, 108, 31);}
-.adicionar_Promocao_Enviar:hover{background: rgb(9, 58, 17);}
 /* Tela inserir lista */
 .adicionar_Lista{
     position: absolute;
@@ -180,144 +195,5 @@ main h1{text-align: center;}
     margin-bottom: 5%;
     border-radius: 10px;
     font-size: 1.3em;
-    padding: 2% 6%;
-    border: 2px solid black;
     transition: 1s;
-}
-.adicionar_Lista_Limpar{background: rgb(187, 172, 0);}
-.adicionar_Lista_Limpar:hover{background: rgb(122, 112, 0);}
-.adicionar_Lista_Fechar{background: rgb(108, 17, 17);}
-.adicionar_Lista_Fechar:hover{background: rgb(62, 11, 11);}
-.adicionar_Lista_Enviar:hover{background: rgb(9, 58, 17);}
-.adicionar_Lista_Enviar{background: rgb(17, 108, 31);}
-/* Tela Editar lista */
-.editar_Lista{
-    position: absolute;
-    top: 10%;
-    width: 60%;;
-    margin-left: 20%;
-    background: #888;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-}
-.editar_Lista h1{margin: 4% 0;}
-#Editar_Lista{
-    width: 70%;
-    padding: 3%;
-    margin-bottom: 5%;
-    font-size: 1.8em;
-    font-weight: bold;
-    border: 3px solid #888;
-    border-radius: 15px;
-    background-color: #eee;
-    resize: none;   
-    overflow: hidden;
-    white-space: nowrap;
-    transition: 1s;
-}
-#Editar_Lista:invalid {border-color: #dc3545;box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);}
-.editar_Lista_Buttons{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-    width: 90%;
-}
-.editar_Lista_Buttons>div{
-    margin-bottom: 5%;
-    border-radius: 10px;
-    font-size: 1.3em;
-    padding: 2% 6%;
-    border: 2px solid black;
-    transition: 1s;
-}
-.editar_Lista_Limpar{background: rgb(187, 172, 0);}
-.editar_Lista_Limpar:hover{background: rgb(122, 112, 0);}
-.editar_Lista_Fechar{background: rgb(108, 17, 17);}
-.editar_Lista_Fechar:hover{background: rgb(62, 11, 11);}
-.editar_Lista_Enviar:hover{background: rgb(9, 58, 17);}
-.editar_Lista_Enviar{background: rgb(17, 108, 31);}
-@media (max-width: 1200px) {
-    main .itens_Promocao{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .buttons_Lista_Promocao>div{
-        font-size: 1.3em;
-    }
-}
-@media (max-width: 1000px) {
-    main .itens_Promocao{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .buttons_Lista_Promocao>div{
-        font-size: 1.1em;
-    }
-    .buttons_Lista_Promocao>div a{
-        padding: 6%;
-    }
-    .adicionar_Promocao{
-        width: 80%;
-        margin-left: 10%;
-    }
-    .adicionar_Lista_Buttons{
-        width: 80%;
-    }
-    .adicionar_Lista_Buttons>div{
-        font-size: 1.1em;
-        padding: 2% 4%;
-    }
-    #Inserir_Lista{
-        width: 80%;
-        font-size: 1.4em;
-    }
-}
-@media (max-width: 800px) {
-    main .itens_Promocao{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .buttons_Lista_Promocao{
-        display: none !important;
-    }
-    .buttons_Lista_Promocao_Pequenos{
-        display: flex;
-    }
-    .adicionar_Promocao{
-        width: 60%;
-        margin-left: 20%;
-    }
-    .adicionar_Promocao_Inputs{
-        flex-direction: column;
-        align-items: center !important;
-    }
-    .adicionar_Promocao_Inputs label{
-        margin-bottom: 5%;
-    }
-    .adicionar_Promocao_Inputs input{
-        width: 90% !important;
-    }
-    .adicionar_Promocao_Buttons{
-        margin: 5% 0;
-    }
-    .adicionar_Lista h1{
-        font-size: 1.8em;
-    }
-    .adicionar_Lista_Buttons{
-        width: 90%;
-    }
-    .adicionar_Lista_Buttons>div{
-        font-size: 1em;
-    }
-}
-@media (max-width: 600px) {
-    main .itens_Promocao{
-        grid-template-columns: repeat(1, 1fr);
-
-    }
-    .adicionar_Lista h1{
-        font-size: 1.5em;
-    }
-    #Inserir_Lista{
-        font-size: 1.2em;
-    }
 }
