@@ -1,1 +1,0 @@
-from .Get_Promo import getListItems

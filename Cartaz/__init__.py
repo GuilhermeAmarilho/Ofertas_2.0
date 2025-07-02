@@ -1,1 +1,0 @@
-from .Cartaz import get_Cartaz, get_Path, generate_All_Items, generate_Exemple_Items

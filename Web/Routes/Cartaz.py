@@ -1,20 +1,20 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for
-from Cartaz.Cartaz import generate_Exemple_Items, generate_All_Items
+# from Cartaz.Cartaz import get_Config, generate_Exemple_Items
+from Cartaz.Cartaz import generate_Exemple_Items
+from Storage.Config import get_Config, get_Themes
 
-def getConfig():
-    return "teste"
 cartaz_bp = Blueprint('cartaz', __name__, url_prefix='/Cartaz', template_folder='../Templates')
 
 @cartaz_bp.route('/', methods=['GET'])
 def tela_cartaz():
     # generate_Exemple_Items()
-    # config = getConfig()
+    config = get_Config()
     return render_template('cartaz.html', title="Criação de cartazes", config=config)
 
-# @cartaz_bp.route('/getListaDeTemas', methods=['GET', 'POST'])
-# def get_lista_de_temas():
-#     temas = getThemes()
-#     return jsonify(temas)
+@cartaz_bp.route('/getListaDeTemas', methods=['GET', 'POST'])
+def get_lista_de_temas():
+    temas = get_Themes()
+    return jsonify(temas)
 
 # @cartaz_bp.route('/atualizarTema/<tema>', methods=['GET'])
 # def atualizar_tema(tema):

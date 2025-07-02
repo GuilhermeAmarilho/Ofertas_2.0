@@ -6,6 +6,11 @@ background_Alterar_Tema.addEventListener(
         tela_Lista_De_Promocao()
     }
 );
+function limpar_Lista_De_Temas(){
+    while (div_Lista_De_Temas.childElementCount > 0) {
+        div_Lista_De_Temas.removeChild(div_Lista_De_Temas.firstChild);
+    }
+}
 function tela_Lista_De_Promocao(){
     limpar_Lista_De_Temas();
     pegar_Temas('');
@@ -16,7 +21,7 @@ function tela_Lista_De_Promocao(){
     background_Alterar_Tema.classList.toggle('cartaz_Background_Fechado');
 }
 function pegar_Temas(query){
-    fetch('/getListaDeTemas')
+    fetch('/Cartaz/getListaDeTemas')
     .then(response => {return response.json();})
     .then(
         data => {
@@ -43,14 +48,9 @@ function desenhar_Temas(tema){
     content.textContent = tema.replace(/_/g, " ");
     tema_Unitario.appendChild(content);
     let img = document.createElement('img')
-    img.src = "/static/Temas/" + tema + "/Horizontal.png";
+    img.src = "/static/Assets/Themes/" + tema + "/Paisagem.png";
     tema_Unitario.appendChild(img)
     div_Lista_De_Temas.appendChild(tema_Unitario)
-}
-function limpar_Lista_De_Temas(){
-    while (div_Lista_De_Temas.childElementCount > 0) {
-        div_Lista_De_Temas.removeChild(div_Lista_De_Temas.firstChild);
-    }
 }
 const query_Input = document.querySelector('input.alterar_Tema_Query');
 query_Input.addEventListener(

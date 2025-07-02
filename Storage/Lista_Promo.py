@@ -59,7 +59,7 @@ def organizando_valor(linha):
 def getListItems(init = 0):
     start = time.time()
     promocao_completa = []
-    file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+    file_path = ((os.path.abspath(__file__)).replace('\\Lista_Promo.py', ''))
     with open((file_path+'\\Dados_ofertas.txt'), 'r', encoding='utf8') as arquivo:
         i = 0
         for linha in arquivo:
@@ -80,7 +80,7 @@ def addItem(item, valor):
         valor = valor.replace(',','.')
         valor = f"{float(valor):.2f}"
         valor = valor.replace('.',',')
-        file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+        file_path = ((os.path.abspath(__file__)).replace('\\Lista_Promo.py', ''))
         file = open(file = file_path+'\\dados_ofertas.txt', mode = 'a', encoding = 'utf-8')
         file.write('\n'+item+' '+valor)
         file.close
@@ -93,10 +93,9 @@ def replaceList(list):
         string = ''
         for item in list:
             string += "\n"+" ".join(item[1])+" "+item[2]
-        file_path = ((os.path.abspath(__file__)).replace('\\Get_Promo.py', ''))
+        file_path = ((os.path.abspath(__file__)).replace('\\Lista_Promo.py', ''))
         file = open(file = file_path+'\\dados_ofertas.txt', mode = 'w', encoding = 'utf-8')
         file.write(string)
-        print("\n\n\n\n\n\Foi")
         return True
     except:
         return False

@@ -8,7 +8,7 @@
 #     generate_All_Items()
 # end = time.time()
 # print("{:.6f} segundos".format(end - start))
-
+import os
 from Web.Start_Flask import app
 
 if __name__ == '__main__':

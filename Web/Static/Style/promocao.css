@@ -197,3 +197,136 @@ main h1{text-align: center;}
     font-size: 1.3em;
     transition: 1s;
 }
+
+
+/* Tela Editar lista
+.editar_Lista{
+    position: absolute;
+    top: 10%;
+    width: 60%;;
+    margin-left: 20%;
+    background: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.editar_Lista h1{margin: 4% 0;}
+#Editar_Lista{
+    width: 70%;
+    padding: 3%;
+    margin-bottom: 5%;
+    font-size: 1.8em;
+    font-weight: bold;
+    border: 3px solid #888;
+    border-radius: 15px;
+    background-color: #eee;
+    resize: none;   
+    overflow: hidden;
+    white-space: nowrap;
+    transition: 1s;
+}
+#Editar_Lista:invalid {border-color: #dc3545;box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);}
+.editar_Lista_Buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    width: 90%;
+}
+.editar_Lista_Buttons>div{
+    margin-bottom: 5%;
+    border-radius: 10px;
+    font-size: 1.3em;
+    padding: 2% 6%;
+    border: 2px solid black;
+    transition: 1s;
+}
+.editar_Lista_Limpar{background: rgb(187, 172, 0);}
+.editar_Lista_Limpar:hover{background: rgb(122, 112, 0);}
+.editar_Lista_Fechar{background: rgb(108, 17, 17);}
+.editar_Lista_Fechar:hover{background: rgb(62, 11, 11);}
+.editar_Lista_Enviar:hover{background: rgb(9, 58, 17);}
+.editar_Lista_Enviar{background: rgb(17, 108, 31);}
+@media (max-width: 1200px) {
+    main .itens_Promocao{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .buttons_Lista_Promocao>div{
+        font-size: 1.3em;
+    }
+}
+@media (max-width: 1000px) {
+    main .itens_Promocao{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .buttons_Lista_Promocao>div{
+        font-size: 1.1em;
+    }
+    .buttons_Lista_Promocao>div a{
+        padding: 6%;
+    }
+    .adicionar_Promocao{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .adicionar_Lista_Buttons{
+        width: 80%;
+    }
+    .adicionar_Lista_Buttons>div{
+        font-size: 1.1em;
+        padding: 2% 4%;
+    }
+    #Inserir_Lista{
+        width: 80%;
+        font-size: 1.4em;
+    }
+}
+@media (max-width: 800px) {
+    main .itens_Promocao{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .buttons_Lista_Promocao{
+        display: none !important;
+    }
+    .buttons_Lista_Promocao_Pequenos{
+        display: flex;
+    }
+    .adicionar_Promocao{
+        width: 60%;
+        margin-left: 20%;
+    }
+    .adicionar_Promocao_Inputs{
+        flex-direction: column;
+        align-items: center !important;
+    }
+    .adicionar_Promocao_Inputs label{
+        margin-bottom: 5%;
+    }
+    .adicionar_Promocao_Inputs input{
+        width: 90% !important;
+    }
+    .adicionar_Promocao_Buttons{
+        margin: 5% 0;
+    }
+    .adicionar_Lista h1{
+        font-size: 1.8em;
+    }
+    .adicionar_Lista_Buttons{
+        width: 90%;
+    }
+    .adicionar_Lista_Buttons>div{
+        font-size: 1em;
+    }
+}
+@media (max-width: 600px) {
+    main .itens_Promocao{
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+    .adicionar_Lista h1{
+        font-size: 1.5em;
+    }
+    #Inserir_Lista{
+        font-size: 1.2em;
+    }
+} */

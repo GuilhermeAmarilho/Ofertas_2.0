@@ -1,8 +1,8 @@
 from PIL import Image, ImageDraw, ImageFont
-import os
-from .Config_Reader import get_Config
-from Storage import getListItems
+from Storage.Lista_Promo import getListItems
+from Storage.Config import get_Config
 from multiprocessing import Pool, cpu_count
+import os, json
 
 # ######################### Caminhos corretos #########################
 
@@ -18,8 +18,7 @@ def get_Base_Cartaz(modelo):
     return Image.open(path)
 
 def get_Logo_Path():
-    logo = get_Config("Logo")
-    path = get_Path(1) + '\\Design\\Logo\\' + logo + ".png"
+    path = get_Path(1) + '\\Design\\Logo\\' + get_Config("Logo") + ".png"
     return path
 
 # ######################### Ajustes de imagens #########################
@@ -117,7 +116,7 @@ def get_Adjusted_Location(info):
 # ######################### Criação dos cartazes #########################
 
 def get_Cartaz(cartaz_Type, text, value):
-    config = get_Config(cartaz_Type)
+    config = get_Config("Cartaz")[cartaz_Type]
     base_Cartaz = get_Base_Cartaz(cartaz_Type)
     # ########### Logo ###########
     logo, logo_Pos = get_Adjusted_Logo(config['Logo'])
@@ -154,6 +153,7 @@ def generate_Exemple_Items(view = False, who=None):
     item = [["COXA E SOBRECOXA", "TRADICIONAL", "Kg"], ["COXA E SOBRECOXA", "TRADICIONAL Kg"], "18,99"]
     if view == False:
         cartaz_List_Path = get_Path(1) + '\\Web\\Static\\Exemple\\'
+        print(cartaz_List_Path)
         if  not os.path.exists(cartaz_List_Path):
             os.mkdir(cartaz_List_Path)
         tasks = []
@@ -169,7 +169,7 @@ def generate_Exemple_Items(view = False, who=None):
                 get_Cartaz("Paisagem", item[1], item[2]).show()
 
 def generate_All_Items():
-    cartaz_List_Path = get_Path(0) + '\\results\\'
+    cartaz_List_Path = get_Path(1) + '\\Web\\Static\\Results\\'
     if  not os.path.exists(cartaz_List_Path):
         os.mkdir(cartaz_List_Path)
     tasks = []

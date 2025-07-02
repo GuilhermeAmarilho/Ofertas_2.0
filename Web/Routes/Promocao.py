@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from Storage.Get_Promo import getListItems, addItem, replaceList
+from Storage.Lista_Promo import getListItems, addItem, replaceList
 
 promocao_bp = Blueprint('promocao', __name__, url_prefix='/Promocao', template_folder='../Templates')
 
