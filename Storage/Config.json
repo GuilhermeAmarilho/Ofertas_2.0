@@ -1,5 +1,5 @@
 {
-    "Theme": "Hortifruti",
+    "Theme": "Black_Fecha_Mes_Novembro",
     "Logo": "Logo_texto_duplo",
     "Contrast": "Balao_Amarelo_Para_Laranja",
     "Save_Path": "C\\Users\\gui\\Downloads",
@@ -16,7 +16,11 @@
                 "Top_Position": "260",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "400",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Middle_Text": {
                 "Height": "120",
@@ -24,7 +28,11 @@
                 "Top_Position": "420",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "300",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Last_Text": {
                 "Height": "120",
@@ -32,7 +40,11 @@
                 "Top_Position": "540",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "300",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Price": {
                 "Height": "350",
@@ -41,7 +53,11 @@
                 "Ratio_Large_Small": "2",
                 "Font_Name": "Anton-Regular",
                 "Font_Size": "500",
-                "Font_Color": {"R": "255", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "255",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Money": {
                 "Height": "80",
@@ -51,7 +67,11 @@
                 "Text": "R$",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "200",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Location": {
                 "Height": "80",
@@ -63,7 +83,11 @@
                 "Gap": "-10",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "120",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             }
         },
         "Paisagem": {
@@ -78,7 +102,11 @@
                 "Top_Position": "210",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "300",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Middle_Text": {
                 "Height": "140",
@@ -86,7 +114,11 @@
                 "Top_Position": "380",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "300",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Price": {
                 "Height": "220",
@@ -95,7 +127,11 @@
                 "Ratio_Large_Small": "2",
                 "Font_Name": "Anton-Regular",
                 "Font_Size": "600",
-                "Font_Color": {"R": "255", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "255",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Money": {
                 "Height": "80",
@@ -105,7 +141,11 @@
                 "Text": "R$",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "100",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             },
             "Location": {
                 "Height": "80",
@@ -117,7 +157,11 @@
                 "Gap": "-10",
                 "Font_Name": "LilitaOne_Regular",
                 "Font_Size": "120",
-                "Font_Color": {"R": "0", "G": "0", "B": "0"}
+                "Font_Color": {
+                    "R": "0",
+                    "G": "0",
+                    "B": "0"
+                }
             }
         }
     }

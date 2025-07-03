@@ -1,6 +1,6 @@
 
 const div_Alterar_Tema = document.querySelector('div#alterar_Tema');
-const background_Alterar_Tema = document.querySelector('div#cartaz_Background');
+const background_Alterar_Tema = document.querySelector('div#Alterar_Tema_Background');
 background_Alterar_Tema.addEventListener(
     "click", function (e) {
         tela_Lista_De_Promocao()
@@ -17,8 +17,8 @@ function tela_Lista_De_Promocao(){
     document.body.classList.toggle('cartaz_Blocked');
     div_Alterar_Tema.classList.toggle('alterar_Tema');
     div_Alterar_Tema.classList.toggle('alterar_Tema_Fechado');
-    background_Alterar_Tema.classList.toggle('cartaz_Background');
-    background_Alterar_Tema.classList.toggle('cartaz_Background_Fechado');
+    background_Alterar_Tema.classList.toggle('Alterar_Tema_Background');
+    background_Alterar_Tema.classList.toggle('Alterar_Tema_Background_Fechado');
 }
 function pegar_Temas(query){
     fetch('/Cartaz/getListaDeTemas')
@@ -42,7 +42,7 @@ function pegar_Temas(query){
 const div_Lista_De_Temas = document.querySelector('div.alterar_Tema_Results');
 function desenhar_Temas(tema){
     let tema_Unitario = document.createElement('a');
-    tema_Unitario.href = '/atualizarTema/'+tema;
+    tema_Unitario.href = '/Cartaz/atualizarTema/'+tema;
     tema_Unitario.classList = 'alterar_Tema_Unitario';
     let content = document.createElement('p');
     content.textContent = tema.replace(/_/g, " ");
@@ -59,3 +59,20 @@ query_Input.addEventListener(
         pegar_Temas(query_Input.value)
     }
 )
+
+// ###################### ALTERAR LOGO ######################
+
+const div_Alterar_Logo = document.querySelector('div#Alterar_Logo');
+const background_Alterar_Logo = document.querySelector('div#Alterar_Logo_Background');
+background_Alterar_Logo.addEventListener(
+    "click", function (e) {
+        tela_Ajuste_Logo()
+    }
+);
+function tela_Ajuste_Logo(){
+    document.body.classList.toggle('cartaz_Blocked');
+    div_Alterar_Logo.classList.toggle('Alterar_Logo');
+    div_Alterar_Logo.classList.toggle('Alterar_Logo_Fechado');
+    background_Alterar_Logo.classList.toggle('Alterar_Logo_Background');
+    background_Alterar_Logo.classList.toggle('Alterar_Logo_Background_Fechado');
+}

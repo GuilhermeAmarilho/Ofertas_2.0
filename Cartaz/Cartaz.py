@@ -2,23 +2,23 @@ from PIL import Image, ImageDraw, ImageFont
 from Storage.Lista_Promo import getListItems
 from Storage.Config import get_Config
 from multiprocessing import Pool, cpu_count
-import os, json
+import os, json, sys
 
 # ######################### Caminhos corretos #########################
 
 def get_Font(nome_Fonte, tamanho_Fonte):
-    font_path = os.path.join(get_Path(1), 'Design', 'Fonts', f'{nome_Fonte}.ttf')
-    return ImageFont.truetype(font_path, int(tamanho_Fonte))
+    path = get_Path(1) + '\\Web\\Static\\Assets\\Fonts\\' + nome_Fonte + ".ttf"
+    return ImageFont.truetype(path, int(tamanho_Fonte))
 
 def get_Path(level = 0):
     return "\\".join(os.path.abspath(__file__).split('\\')[:(-1-level)])
 
 def get_Base_Cartaz(modelo):
-    path = get_Path(1) + '\\Design\\Themes\\' + get_Config("Theme") + "\\" + modelo + ".png"
+    path = get_Path(1) + '\\Web\\Static\\Assets\\Themes\\' + get_Config("Theme") + "\\" + modelo + ".png"
     return Image.open(path)
 
 def get_Logo_Path():
-    path = get_Path(1) + '\\Design\\Logo\\' + get_Config("Logo") + ".png"
+    path = get_Path(1) + '\\Web\\Static\\Assets\\Logo\\' + get_Config("Logo") + ".png"
     return path
 
 # ######################### Ajustes de imagens #########################
@@ -153,7 +153,6 @@ def generate_Exemple_Items(view = False, who=None):
     item = [["COXA E SOBRECOXA", "TRADICIONAL", "Kg"], ["COXA E SOBRECOXA", "TRADICIONAL Kg"], "18,99"]
     if view == False:
         cartaz_List_Path = get_Path(1) + '\\Web\\Static\\Exemple\\'
-        print(cartaz_List_Path)
         if  not os.path.exists(cartaz_List_Path):
             os.mkdir(cartaz_List_Path)
         tasks = []

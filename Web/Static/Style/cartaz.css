@@ -88,7 +88,7 @@ main a{text-decoration: none;color: #fff;}
 .cartaz_Formatos p{font-size: 1.1em; padding: 2% 0;}
 .cartaz_Formatos_Opcoes{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     flex-wrap: nowrap;
     font-size: 1em;
     width: 100%;
@@ -96,11 +96,11 @@ main a{text-decoration: none;color: #fff;}
 .cartaz_Formatos_Opcoes input[type="checkbox"]{display: none;}
 .cartaz_Formatos_Opcoes label{
     user-select: none;
-    padding: 10% 5%;
+    padding: 5% 0 10% 0;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s;
-    font-size: 0.8em;
+    font-size: 1em;
     color: #ff0000;
 }
 .cartaz_Formatos_Opcoes label:hover{color: #999;}
@@ -155,10 +155,10 @@ main a{text-decoration: none;color: #fff;}
 .cartaz_Iniciar div{margin: 3% 0;font-size: 1em;}
 .cartaz_Iniciar:hover{background: #777;border: 2px solid #bbb;}
 /* ============== Telas de alteracao de tema ============== */
-.cartaz_Background_Fechado{display: none;}
+.Alterar_Tema_Background_Fechado{display: none;}
 .alterar_Tema_Fechado{display: none;}
 .cartaz_Blocked{overflow: hidden;}
-.cartaz_Background{
+.Alterar_Tema_Background{
     position: absolute;
     top: 0;
     left: 0;
@@ -224,14 +224,66 @@ main a{text-decoration: none;color: #fff;}
 .alterar_Tema_Unitario p{width: 80%;text-align: center;font-size: 0.9em;}
 .alterar_Tema_Unitario img{width: 90%; padding-bottom: 5%;max-width: 150px;}
 .alterar_Tema_Unitario:hover{background: #999;}
-.alterar_Tema_Fechar{position: absolute; top: 1%; right: 1%;}
+.alterar_Tema_Fechar, .Alterar_Logo_Fechar{position: absolute; top: 1%; right: 1%;}
 .alterar_Tema_Fechar img{width: 3vw;}
 /* ============== Telas de ajuste da logo ============== */
-
-
-
-
-
+.Alterar_Logo_Background_Fechado{display: none;}
+.Alterar_Logo_Fechado{display: none;}
+.Alterar_Logo_Background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    filter: opacity(95%);
+    cursor: pointer;
+}
+.Alterar_Logo{
+    position: absolute;
+    top: 8%;
+    width: 50%;
+    margin-left: 25%;
+    background: #888;
+    border: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.Alterar_Logo h2{
+    font-size: 1.5em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.Alterar_Logo h2>div{
+    text-decoration: underline;
+}
+.Alterar_Logo_Form{
+    width: 70%;
+}
+.Alterar_Logo_Form_Interno{
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 0;
+    /* width: 80%; */
+}
+.Alterar_Logo_Form_Interno label{
+    font-size: 1.2em;
+    width: 40%;
+}
+.Alterar_Logo_Form_Interno input[type='range']{
+    width: 50%;
+    -webkit-appearance: none;
+    height: 1em;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
 
 
 /* ============== Imagens ============== */

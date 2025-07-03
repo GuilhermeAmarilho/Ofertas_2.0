@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for
 # from Cartaz.Cartaz import get_Config, generate_Exemple_Items
 from Cartaz.Cartaz import generate_Exemple_Items
-from Storage.Config import get_Config, get_Themes
+from Storage.Config import get_Config, get_Themes, update_Config
 
 cartaz_bp = Blueprint('cartaz', __name__, url_prefix='/Cartaz', template_folder='../Templates')
 
@@ -16,10 +16,10 @@ def get_lista_de_temas():
     temas = get_Themes()
     return jsonify(temas)
 
-# @cartaz_bp.route('/atualizarTema/<tema>', methods=['GET'])
-# def atualizar_tema(tema):
-#     updateConfig("Tema_Escolhido", tema)
-#     return redirect(url_for('cartaz.tela_cartaz'))
+@cartaz_bp.route('/atualizarTema/<tema>', methods=['GET'])
+def atualizar_tema(tema):
+    update_Config("Theme", tema)
+    return redirect(url_for('cartaz.tela_cartaz'))
 
 # Caso queira ter outra rota no mesmo blueprint:
 # @cartaz_bp.route('/outra_rota', methods=['GET'])

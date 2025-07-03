@@ -1,1 +1,4 @@
-- Falta arrumar o alterar unitário do Ofertas
+- Propaganda
+    - Falta arrumar o alterar unitário do Ofertas
+- Cartaz
+    - Parei no editar logo

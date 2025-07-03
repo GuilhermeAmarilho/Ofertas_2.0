@@ -24,3 +24,16 @@ def get_Themes():
         ) and nome != 'Base_Para_Photoshop'
     ]
     return pastas
+
+def update_Config(key, values):
+    path = get_Path(0) + "\\Config.json"
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        config[key] = values
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(config, f, indent=4, ensure_ascii=False)
+        return True
+    except Exception as e:
+        print("Erro ao salvar configuração:", e)
+        return False

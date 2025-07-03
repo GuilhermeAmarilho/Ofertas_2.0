@@ -22,7 +22,7 @@
                     <div>Tema</div>
                 </div>
             </a>
-            <a href="#" class="texto_bordado_branco cartaz_Logo">
+            <a href="javascript:tela_Ajuste_Logo()" class="texto_bordado_branco cartaz_Logo">
                 <img src="{{ url_for('static', filename='Img/Cartaz_Logo.png') }}">
                 <div>
                     <div>Ajustar</div>
@@ -46,14 +46,6 @@
                     <div>
                         <input type="checkbox" name="Horizontal" id="Horizontal" checked>
                         <label for="Horizontal" class="texto_bordado_branco">Horizontal</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="Feed" id="Feed" checked>
-                        <label for="Feed" class="texto_bordado_branco">Feed</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="Story" id="Story" checked>
-                        <label for="Story" class="texto_bordado_branco">Story</label>
                     </div>
                 </div>
             </div>
@@ -92,12 +84,46 @@
     <div class="cartaz_Barra_De_Progresso">
         <div></div>
     </div>
-    <div class="cartaz_Background_Fechado" id="cartaz_Background"></div>
+    <div class="Alterar_Tema_Background_Fechado" id="Alterar_Tema_Background"></div>
     <div class="alterar_Tema_Fechado" id="alterar_Tema">
         <h1>Alteração de tema</h1>
         <input type="text" class="alterar_Tema_Query" placeholder="Informe o tema: ">
         <div class="alterar_Tema_Results"></div>
         <a href="javascript:tela_Lista_De_Promocao()" class="alterar_Tema_Fechar"><img src="{{ url_for('static', filename='Img/Cartaz_Fechar.png') }}" alt="Fechar"></a>
+    </div>
+    <div class="Alterar_Logo_Background" id="Alterar_Logo_Background"></div>
+    <div class="Alterar_Logo" id="Alterar_Logo">
+        <h1>Alteração da Logo</h1>
+        <h2>
+            Logo Atual: 
+            <div>
+                {{config['Logo']}}
+            </div>
+        </h2>
+        <div class="Alterar_Logo_Form">
+            <div class="Alterar_Logo_Form_Interno">
+                <label for="Alterar_Logo">Alterar Logo</label>
+                <input type="file" name="Alterar_Logo" id="Alterar_Logo">
+            </div>
+            <div class="Alterar_Logo_Form_Interno">
+                <label for="Alterar_Logo_Altura">Altura: </label>
+                <input type="range" name="Alterar_Logo_Altura" id="Alterar_Logo_Altura">
+            </div>
+            <div class="Alterar_Logo_Form_Interno">
+                <label for="Alterar_Logo_Largura">Largura: </label>
+                <input type="range" name="Alterar_Logo_Largura" id="Alterar_Logo_Largura">
+            </div>
+            <div class="Alterar_Logo_Form_Interno">
+                <label for="Alterar_Logo_distanciaX">Distância X: </label>
+                <input type="range" name="Alterar_Logo_distanciaX" id="Alterar_Logo_distanciaX">
+            </div>
+            <div class="Alterar_Logo_Form_Interno">
+                <label for="Alterar_Logo_DistanciaY">Distância Y: </label>
+                <input type="range" name="Alterar_Logo_DistanciaY" id="Alterar_Logo_DistanciaY">
+            </div>
+        </div>
+        <div class="Alterar_Logo_Results"></div>
+        <a href="javascript:tela_Ajusta_Logo()" class="Alterar_Logo_Fechar"><img src="{{ url_for('static', filename='Img/Cartaz_Fechar.png') }}" alt="Fechar"></a>
     </div>
     {% include 'Generico/footer.html' %}
     <script src="{{ url_for('static', filename='Script/cartaz.js') }}"></script>

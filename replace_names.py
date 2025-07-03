@@ -10,8 +10,7 @@ MAPPING = {
 }
 
 # Diretório base onde ficam os temas
-BASE_DIR = Path(__file__).parent / 'Design' / 'Themes'
-
+BASE_DIR = Path(__file__).parent / 'Web' / 'Static' / 'Assets' / 'Themes'
 
 def rename_images_in_themes(base_dir: Path):
     if not base_dir.exists() or not base_dir.is_dir():
@@ -37,4 +36,5 @@ def rename_images_in_themes(base_dir: Path):
                 except Exception as e:
                     print(f"Erro ao renomear {img_path.name}: {e}")
 
+        print(theme_dir)
 rename_images_in_themes(BASE_DIR)
