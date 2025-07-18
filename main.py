@@ -10,7 +10,7 @@
 # print("{:.6f} segundos".format(end - start))
 import os
 from Web.Start_Flask import app
-
+os.system('cls')
 if __name__ == '__main__':
     # aqui roda o servidor
     app.run(host='0.0.0.0', port=8221, debug=True)
