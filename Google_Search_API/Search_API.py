@@ -5,23 +5,26 @@ load_dotenv()
 GOOGLE_SEARCH_API_KEY = os.getenv('GOOGLE_SEARCH_API_KEY')
 GOOGLE_SEARCH_API_ENGINE = os.getenv('GOOGLE_SEARCH_API_ENGINE')
 
-def buscar_google(consulta, quantidade=5):
+
+def searchIMG(query, qt=5):
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
         "key": GOOGLE_SEARCH_API_KEY,
         "cx": GOOGLE_SEARCH_API_ENGINE,
-        "q": consulta,
+        "q": query,
         "searchType": "image",
-        "num": quantidade
+        "num": qt,
+        "fileType": "png"
     }
+    results = []
     response = requests.get(url, params=params)
-    
     if response.status_code == 200:
-        dados = response.json()
-        imagens = [item['link'] for item in dados.get("items", [])]
-        return imagens
-    else:
-        print("Erro:", response.status_code)
-        print(response.text)
-        return []
-    
+        try:
+            dados = response.json()
+            # print('\n\n\n\n\n')
+            for item in dados.get("items"):
+                if item.get("fileFormat") == "image/png":
+                    results.append(item.get("link"))
+            return results
+        except:
+            return []
