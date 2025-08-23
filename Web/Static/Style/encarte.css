@@ -1,0 +1,64 @@
+main{
+    display: flex;
+    flex-direction: row;
+}
+section#List_Item {
+    width: 40%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.List_Content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px; 
+    width: 95%;
+}
+div.Item_Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 5%;
+    background: #444;
+    transition: .5s;
+}
+div.Item_Content:hover{
+    background: #bbb;
+}
+
+div.Item_Content_Ready{
+    background: rgb(2, 83, 13) !important;
+}
+p.Item_Name{
+    width: 80%;
+    font-size: 0.7em;
+}
+p.Item_Value{
+    font-size: 1em;
+}
+div.Img{
+    color: #fff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 5%;
+}
+div.Img img{
+    width: 64px;
+}
+@media (max-width: 800px){
+    div.List_Content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    div.Img h1{
+        /* margin: 0; */
+        font-size: 1.3em;
+    }
+}

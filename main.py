@@ -8,9 +8,14 @@
 #     generate_All_Items()
 # end = time.time()
 # print("{:.6f} segundos".format(end - start))
+
+# from Web.Start_Flask import app
 import os
-from Web.Start_Flask import app
+
 os.system('cls')
-if __name__ == '__main__':
+from Items_Image.FindImg import FindImg
+
+print(FindImg("alh"))
+# if __name__ == '__main__':
     # aqui roda o servidor
-    app.run(host='0.0.0.0', port=8221, debug=True)
+    # app.run(host='0.0.0.0', port=8221, debug=True)

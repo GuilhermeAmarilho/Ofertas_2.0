@@ -5,7 +5,25 @@
     {% include 'Generico/navbar.html' %} 
     <link rel="stylesheet" href="{{ url_for('static', filename='Style/encarte.css') }}">
     <main>
-
+        <section id="List_Item">
+            {% if items and items|length > 0 %}
+                <h1>Lista de Itens</h1>
+                <div class="List_Content">
+                    {% for item in items %}
+                        <div class="Item_Content" id="{{item[3]}}">
+                            <p class="Item_Name">{{item[1][0] + " " + item[1][1]}}</p>
+                            <p class="Value_Name">{{item[2]}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+        <div class="Img">
+            <h1>Selecione um item para escolher sua foto</h1>
+            <div class="Img_Query">
+                
+            </div>
+        </div>
     </main>
     {% include 'Generico/footer.html' %}
     <script src="{{ url_for('static', filename='Script/encarte.js') }}"></script>
