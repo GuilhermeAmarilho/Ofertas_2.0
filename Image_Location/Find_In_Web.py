@@ -6,7 +6,7 @@ GOOGLE_SEARCH_API_KEY = os.getenv('GOOGLE_SEARCH_API_KEY')
 GOOGLE_SEARCH_API_ENGINE = os.getenv('GOOGLE_SEARCH_API_ENGINE')
 
 
-def searchIMG(query, qt=5):
+def find_Web(query, qt=5):
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
         "key": GOOGLE_SEARCH_API_KEY,
