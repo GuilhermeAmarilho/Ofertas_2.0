@@ -1,5 +1,7 @@
 import os, requests
 from dotenv import load_dotenv
+from PIL import Image
+from io import BytesIO
 
 load_dotenv()
 GOOGLE_SEARCH_API_KEY = os.getenv('GOOGLE_SEARCH_API_KEY')
@@ -28,3 +30,16 @@ def find_Web(query, qt=5):
             return results
         except:
             return []
+
+def show_Results(name_Finded):
+    urls = find_Web(name_Finded, 10)
+    print(urls)
+    for link in urls:
+        try:
+            response = requests.get(link, verify=False)
+            # response.raise_for_status()
+            img = Image.open(BytesIO(response.content))
+            img.show()
+        except Exception as e:
+            # print(f"Erro ao processar imagem: {link}\nMotivo: {e}\n---")
+            continue  
