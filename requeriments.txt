@@ -30,6 +30,7 @@ pooch==1.8.2
 pycparser==2.22
 PyMatting==1.1.14
 PySocks==1.7.1
+python-dotenv==1.1.1
 python-Levenshtein==0.27.1
 RapidFuzz==3.14.1
 referencing==0.36.2

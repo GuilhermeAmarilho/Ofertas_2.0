@@ -52,6 +52,21 @@ div.Img{
 div.Img img{
     width: 64px;
 }
+div.Img_Query{
+    width: 100%;
+}
+div.Img_Query>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.Img_extern_content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; 
+    width: 80%;
+}
+
 @media (max-width: 800px){
     div.List_Content {
         display: grid;

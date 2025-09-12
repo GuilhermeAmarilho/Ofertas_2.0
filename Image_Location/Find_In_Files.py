@@ -28,7 +28,7 @@ def find_File(nome):
         lista_final = []
         for chave, score in resultados_exatos:
             caminho = os.path.join(path, dict_Arquivos[chave])
-            lista_final.append([caminho, score])
+            lista_final.append(caminho)
         return lista_final
     
     # Se não encontrou exato, usa fuzzy
@@ -38,5 +38,5 @@ def find_File(nome):
     for match_nome, score in result:
         if score >= 75:
             caminho = os.path.join(path, dict_Arquivos[match_nome])
-            lista_final.append([caminho, score])
+            lista_final.append(caminho)
     return lista_final
