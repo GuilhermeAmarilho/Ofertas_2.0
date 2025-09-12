@@ -26,8 +26,6 @@ def google_images_scrape(query, max_links=4):
         for i in range(0, min(len(sugestoes), max_links * 2), 2):
             link = sugestoes[i].get_attribute("src")
             results.append(link)
-
-        baixar_imagens(results, destino="maca_verde", prefixo="thumb")
     finally:
             driver.quit()
     return results

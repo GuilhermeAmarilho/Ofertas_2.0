@@ -9,15 +9,8 @@
 # end = time.time()
 # print("{:.6f} segundos".format(end - start))
 
-# from Web.Start_Flask import app
-import os
-from Scraping.Selenium import google_images_scrape
-
-
-os.system('cls')
-img = google_images_scrape("Maçã verde", max_links=10)
-print(img)
+from Web.Start_Flask import app
     
-# if __name__ == '__main__':
+if __name__ == '__main__':
     # aqui roda o servidor
-    # app.run(host='0.0.0.0', port=8221, debug=True)
+    app.run(host='0.0.0.0', port=8221, debug=True)
