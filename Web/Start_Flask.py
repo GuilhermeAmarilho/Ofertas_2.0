@@ -3,11 +3,13 @@ from .Routes.Home import home_bp
 from .Routes.Cartaz import cartaz_bp
 from .Routes.Encarte import encarte_bp
 from .Routes.Promocao import promocao_bp
+import os
 
 app = Flask(__name__)
 
+
 # caminho absoluto da sua pasta
-ITEMS_IMAGE_DIR = r"C:\Users\gui\Documents\Codigos\Crie_Ofertas\Items_Image"
+ITEMS_IMAGE_DIR = "\\".join(os.path.abspath(__file__).split('\\')[:-2]) + '\\' + 'Items_Image'
 
 @app.route("/Items_Image/<path:filename>")
 def items_image(filename):
