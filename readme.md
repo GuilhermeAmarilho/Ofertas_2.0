@@ -66,11 +66,12 @@ pip install -r requirements.txt
 ### 4. 🔐 Variáveis de ambiente
 
 - É necessário criar o arquivo .env manualmente na raiz do projeto com as seguintes chaves:
-
-```env
-GOOGLE_SEARCH_API_KEY=<sua_api_key>
-GOOGLE_SEARCH_API_ENGINE=<seu_engine_id>
-```
+  - Para pegar o GOOGLE_SEARCH_API_KEY, abra o [Link](https://console.cloud.google.com/apis/credentials?project=geradordeofertas)
+  - Para pegar o GOOGLE_SEARCH_API_KEY, abra o [link](https://programmablesearchengine.google.com/controlpanel/all)
+  ```env
+  GOOGLE_SEARCH_API_KEY=<sua_api_key>
+  GOOGLE_SEARCH_API_ENGINE=<seu_engine_id>
+  ```
 
 - 🔔 Observação: Essas chaves são usadas para realizar buscas automáticas de imagens via Google Programmable Search Engine (JSON API).
 

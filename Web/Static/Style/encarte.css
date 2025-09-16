@@ -50,7 +50,8 @@ div.Img{
     margin: 0 5%;
 }
 div.Img img{
-    width: 64px;
+    width: 128px;
+    transition: 0.5s;
 }
 div.Img_Query{
     width: 100%;
@@ -66,7 +67,32 @@ div.Img_extern_content{
     gap: 2px; 
     width: 80%;
 }
+div.buttons_Query{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5%; 
+    width: 80%;
+}
+div.buttons_Query a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10%;
+    border: 1px solid white;
+    border-radius: 10px;
+    background: #999;
+    transition: 0.5s;
+}
+div.buttons_Query a:hover{
+    background: #ddd;
+}
 
+@media (max-width: 1200px){
+    div.Img img{
+        width: 64px;
+    }
+}
 @media (max-width: 800px){
     div.List_Content {
         display: grid;
